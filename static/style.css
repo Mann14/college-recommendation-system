@@ -39,6 +39,33 @@ input::-webkit-inner-spin-button {
     
     margin:0 1rem;
 }
-/* .form-control{
-    font-size: 15px;
-} */
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    padding:5px 10px;
+  }
+@media screen and (max-width:650px) {
+    .grid-container{
+        grid-template-columns: 1fr 1fr 1.2fr;
+        /* width: 85vw; */
+        padding: 0;
+    }
+    .grid-item label{
+        font-size: 12px;
+    }
+}
+.grid-item {
+    border: 0px solid rgba(0, 0, 0, 0.8);
+    padding:1px;
+
+ }
+ .form-control-lg{
+    font-size: 16px;
+ }
+ p{
+    font-size: small;
+ }
+
+.mt-4-pt-2{
+    margin: auto;
+}
