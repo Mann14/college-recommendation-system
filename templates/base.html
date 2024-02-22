@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Recommendation System{% endblock %}</title>
-    <!-- Add any additional CSS or JavaScript links here -->
-    <link rel="stylesheet" href="static/style.css">
     <style>
+        body {
+          margin: 0;
+          padding: 0;
+      }
       /* Sticky button styles */
       .sticky-button {
           position: fixed;
@@ -63,13 +65,13 @@
       }
   
       .navbar img {
-          height: 4rem;
+          /* height: 3rem; */
           left: 0;
           top: 0;
       }
   
       .logo img {
-          height: 4rem;
+          height: 3rem;
       }
   
       .footer {
@@ -87,10 +89,7 @@
           padding: 0; /* Add padding to the iframe content */
           box-sizing: border-box; /* Include padding and border in the total width and height */
       }
-      body {
-          margin: 0;
-          padding: 0;
-      }
+      
 
   
       .footer-sec {
@@ -138,11 +137,22 @@
       }
   
       .copyright {
-          margin-top: 30px;
+          margin-top: 20px;
           color: #7A7A7A;
           text-align: center;
       }
-      
+      .heading p{
+        font-size: 30px;
+      }
+      .heading{
+        margin: auto;
+      }
+      @media screen and (max-width:600px)
+      {
+        .heading p{
+            font-size: 22px;
+        }
+      }
       
   </style>
 </head>
@@ -151,7 +161,9 @@
         <div class="logo">
             <img src="https://www.admissionindia.net/uploads/colleges/31/logo.png" alt="logo">
         </div>
-        <h1>Recommendation System</h1>
+        <div class="heading">
+            <p>Recommendation System</p>
+        </div>
         <!--<button class="sticky-button" onclick="toggleIframe()">Open Carousel</button>-->
 
         <!-- IFrame container 

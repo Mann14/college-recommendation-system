@@ -51,7 +51,7 @@ input::-webkit-inner-spin-button {
         padding: 0;
     }
     .grid-item label{
-        font-size: 12px;
+        font-size: 13px;
     }
 }
 .grid-item {
