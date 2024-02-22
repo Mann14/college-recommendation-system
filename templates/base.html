@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Recommendation System{% endblock %}</title>
+    <!-- Add any additional CSS or JavaScript links here -->
+    <link rel="stylesheet" href="static/style.css">
+    <style>
+        /* Sticky button styles */
+        .sticky-button {
+            position: fixed;
+            top: 40px;
+            right: 20px;
+            z-index: 999;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        /* IFrame styles */
+        #iframe-container {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 40%;
+            height: 100%;
+            box-shadow: -2px 0 4px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            display: none; /* Initially hidden */
+        }
+        .container {
+            margin: 0%;
+            padding: 0%;        }
+
+        #iframe-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            background-color: transparent;
+        }
+        .navbar {
+    height: 5rem;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(54, 162, 235, 1);
+    color: rgb(5, 5, 5);
+    font-weight: 500;
+    overflow-x: hidden;
+  }
+
+  .navbar img {
+    height: 4rem;
+    left: 0;
+    top: 0;
+  }
+  .logo {
+    position: absolute; 
+    left: 10px; 
+    top: 50%;
+    transform: translateY(-50%); 
+}
+
+.logo img {
+    height: 4rem; 
+}
+
+.footer {
+  background-color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+  position: absolute;
+  bottom: 0; 
+  width: 100%;
+  padding: 5px 0;
+}
+
+.footer-sec {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  align-items: center;
+}
+
+.f-logo img {
+  height: 3rem;
+}
+
+.links {
+  display: flex;
+}
+
+.socialmedia img {
+  filter: invert(1);
+  height: 25px;
+  width: 25px;
+}
+
+.socialmedia {
+  border-radius: 25px;
+  height: 45px;
+  width: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.facebook {
+  background-color: #3B5998;
+}
+.youtube {
+  background-color: #CD201F;
+}
+.instagram {
+  background-color: #262626;
+}
+
+.copyright {
+  margin-top: 30px;
+  color: #7A7A7A;
+  text-align: center;
+}
+.graph-iframe {
+    width: 100%; /* Cover 70% width of the container */
+    height: 80%;
+    margin-top: 7rem; /* Shift iframe below navbar */
+    margin-left: 30%; /* Center iframe horizontally */
+    padding: 1rem; /* Add padding to the iframe content */
+    box-sizing: border-box; /* Include padding and border in the total width and height */
+}
+
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <img src="https://www.admissionindia.net/uploads/colleges/31/logo.png" alt="logo">
+        </div>
+        <h1>Recommendation System</h1>
+        <!--<button class="sticky-button" onclick="toggleIframe()">Open Carousel</button>-->
+
+        <!-- IFrame container 
+        <div id="iframe-container">
+            <button onclick="toggleIframe()" style="position: absolute; top: 10px; right: 20px;" class="btn btn-danger">Close</button>
+            <iframe src="mcq" frameborder="0"></iframe> -->
+        </div>
+    </nav>
+
+    {% block content %}
+    <div class="graph-iframe">
+      <iframe src="graph" height="500" width="1000" frameborder="0"></iframe>
+    </div>
+    {% endblock %}
+
+    <footer class="footer">
+        <div class="footer-sec">
+            <div class="f-logo">
+                <img src="https://lnct.ac.in/wp-content/uploads/2021/04/lnct-logo-footer-300x106-1.png" alt="logo">
+            </div>
+            <div class="links">
+                <a class="facebook socialmedia" href="https://www.facebook.com/LNCTGroupOfCollege" target="_blank">
+                    <img src="https://cdn-icons-png.flaticon.com/128/2175/2175193.png" alt="">
+                </a>
+                <a class="youtube socialmedia" href="https://www.youtube.com/c/LnctBroadcastingChannel" target="_blank">
+                    <img src="https://cdn-icons-png.flaticon.com/128/1384/1384028.png" alt="">
+                </a>
+                <a class="instagram socialmedia" href="https://www.instagram.com/lnctgroupofcolleges/" target="_blank">
+                    <img src="https://cdn-icons-png.flaticon.com/128/1384/1384031.png" alt="">
+                </a>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>Copyright © 2024 H.K. KALCHURI EDUCATION TRUST</p>
+        </div>
+    </footer>
+    <script>
+        function toggleIframe() {
+            var iframeContainer = document.getElementById('iframe-container');
+            iframeContainer.style.display = (iframeContainer.style.display == 'none' ? 'block' : 'none');
+        }
+        
+    </script>
+</body>
+</html>
