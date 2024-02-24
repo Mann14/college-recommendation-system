@@ -1,19 +1,15 @@
 .card-registration .select-input.form-control[readonly]:not([disabled]) {
     font-size: 1rem;
-    line-height: 2;
+    line-height: 2.15;
     padding-left: .75em;
     padding-right: .75em;
 }
 .card-registration .select-arrow {
     top: 13px;
-    
-    
-    
 }
 .label{
     font-family: "Roboto Slab";
     font-size: 13px;
-    
 }
 .pt-2{
     text-align: center;
@@ -22,8 +18,7 @@
 
 .display{
     display: grid;
-    grid-template-rows: auto auto auto;
-    
+    grid-template-rows: .3fr 1fr;
 }
 .select{
     height: 50px;
@@ -41,16 +36,17 @@ input::-webkit-inner-spin-button {
     display: none;
 }
 .form-check label{
+    
     margin:0 1rem;
 }
 .grid-container {
     display: grid;
     grid-template-columns: auto auto auto;
-    padding:3px 5px;
+    padding:5px 10px;
   }
 @media screen and (max-width:650px) {
     .grid-container{
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1.2fr;
         /* width: 85vw; */
         padding: 0;
     }
@@ -60,44 +56,16 @@ input::-webkit-inner-spin-button {
 }
 .grid-item {
     border: 0px solid rgba(0, 0, 0, 0.8);
-    padding:0px;
+    padding:1px;
 
-}
-
-.form-control-lg{
-    font-size: 16px;
-    
  }
-
-p{
+ .form-control-lg{
+    font-size: 16px;
+ }
+ p{
     font-size: small;
  }
 
- .mt-4-pt-2{
+.mt-4-pt-2{
     margin: auto;
-    text-align: center;
-}
-
-.col-md-6-mb-4{
-    display: block;
-    margin: 25px;
-    
-}
-
-.col-md-6-mb-4-pb-2{
-    display: block;
-    margin: 27px;
-    margin-top: 0px;
-    margin-bottom: 20px;
-
-}
-
-h3{
-    margin-top: 0px;
-    margin-bottom: 0px;
-}
-
-.gradient-custom{
-    margin-top: 20px;
-    height: 840px;
 }
