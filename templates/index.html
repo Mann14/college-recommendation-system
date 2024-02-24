@@ -20,8 +20,8 @@
                   <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Please fill accurate details!</h3>
                   <form>
       
-                    <div class="row">
-                      <div class="col-md-6 mb-4">
+                    <div class="row row1">
+                      <div class="col-md-6">
       
                         <div class="form-outline">
                             <label class="form-label font-weight-bold" for="fullName">Full Name</label>
@@ -29,7 +29,7 @@
                         </div>
       
                       </div>
-                      <div class="col-md-6 mb-4">
+                      <div class="col-md-6">
       
                         <div class="form-outline">
                             <label class="form-label font-weight-bold" for="email">Email</label>
@@ -38,9 +38,19 @@
                         </div>
       
                       </div>
+                      <div class="col-md-6 pb-2">
+      
+                        <div class="form-outline">
+                            <label class="form-label font-weight-bold" for="family_income">Family Income</label>
+                          <input type="number" id="family_income" class="form-control form-control-lg" name="Family_income" required/>
+                          <label for="family_income" class="form-label label">Please enter income in rupees</label>
+                       
+                        </div>
+      
+                      </div>
                     </div>
                     <div class="row">
-                      <div class="col-md-6 mb-4">
+                      <div class="col-md-6 mb-3 ">
       
                         <h6 class="mb-2 pb-1 font-weight-bold">Higher Education: </h6>
       
@@ -51,11 +61,11 @@
                       </div>
 
                     </div>
-                    <div class="row " id="higher_12">
-                        <div class="col-md-6 mb-4 display">
+                    <div class="row row1 " id="higher_12">
+                        <div class="col-md-6 mb-4">
         
                             <label class="form-label select-label font-weight-bold" for="branch">12th Branch</label>
-                          <select class="select form-control-lg" id="branch" name="12_branch">
+                          <select class="form-control-lg form-control" id="branch" name="12_branch">
                             <option value="PCM">PCM</option>
                             <option value="PCB">PCB</option>
                             <option value="Commerce">Commerce</option>
@@ -64,7 +74,7 @@
                         </div>
                     <br>
                       
-                      <div class="col-md-6 mb-4 pb-2">
+                      <div class="col-md-6">
       
                         <div class="form-outline">
                             <label class="form-label font-weight-bold" for="12th_marks">12th Percentage</label>
@@ -74,11 +84,11 @@
       
                       </div>
                     </div>
-                    <div class="row" id="diploma1">
-                        <div class="col-md-6 mb-4 display">
+                    <div class="row row1" id="diploma1">
+                        <div class="col-md-6 mb-4">
         
                             <label class="form-label select-label font-weight-bold" for="branch">Diploma Branch</label>
-                          <select class="select form-control-lg" id="branch" name="diploma_branch">
+                          <select class="form-control-lg form-control" id="branch" name="diploma_branch">
                             <option value="Management">Management</option>
                             <option value="Medical">Medical</option>
                             <option value="Engineering">Engineering</option>
@@ -100,8 +110,8 @@
                       </div>
                     </div>
       
-                    <div class="row">
-                      <div class="col-md-6 mb-4 pb-2">
+                    <div class="row row1">
+                      <div class="col-md-6 pb-2">
       
                         <div class="form-outline">
                         
@@ -113,35 +123,24 @@
                         </div>
       
                       </div>
-                      <div class="col-md-6 mb-4 pb-2">
-      
-                        <div class="form-outline">
-                            <label class="form-label font-weight-bold" for="family_income">Family Income</label>
-                          <input type="number" id="family_income" class="form-control form-control-lg" name="Family_income" required/>
-                          <label for="family_income" class="form-label label">Please enter income in rupees</label>
-                       
-                        </div>
-      
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-6 mb-4 pb-2">
+                      <div class="col-md-6">
       
                         <div class="form-outline">
                           <label class="form-label font-weight-bold" for="state">State</label>
-                          <select onchange="print_city('city', this.selectedIndex);" id="state" name ="State" class="form-control" required></select>
+                          <select onchange="print_city('city', this.selectedIndex);" id="state" name ="State" class="form-control form-control-lg" required></select>
                         </div>
       
                       </div>
-                      <div class="col-md-6 mb-4 pb-2">
+                      <div class="col-md-6 pb-2">
       
                         <div class="form-outline">
                           <label class="form-label font-weight-bold" for="city">City</label>
-                          <select id ="city" class="form-control" name="City" required ></select>
+                          <select id ="city" class="form-control form-control-lg" name="City" required ></select>
                           <script language="javascript">print_state("state");</script>
                         </div>
       
                       </div>
+                      
                     </div>
       
                     <div class="row">
@@ -186,7 +185,7 @@
                           <div class="grid-item">
                             <input type="checkbox">&nbsp;<label>Problem-solving</label>
                           </div>
-                          <div class="grid-item">
+                          <!-- <div class="grid-item">
                             <input type="checkbox">&nbsp;<label>Science</label>
                           </div>
                           <div class="grid-item">
@@ -222,7 +221,7 @@
                           </div>
                           <div class="grid-item">
                             <input type="checkbox">&nbsp;<label>Environment</label>
-                          </div>
+                          </div> -->
                         </div>
                         <label class="label">Share your preferences to tailor recommendations, finding the best education fit aligned with your goals.</label>
                     </div>
@@ -230,7 +229,7 @@
                     <br>
 
                     <div class="mt-4-pt-2">
-                      <input  class="btn btn-primary btn-lg" type="submit" value="Submit" />
+                      <input  class="btn btn-primary btn-lg" style="margin-top: 20px;" type="submit" value="Submit" />
                     </div>
       
                   </form>
@@ -249,9 +248,9 @@
 
             if (yesRadio.checked) {
                 higher_123.style.display = 'none';
-                higher_diploma.style.display = 'flex';
+                higher_diploma.style.display = 'grid';
             } else {
-                higher_123.style.display = 'flex';
+                higher_123.style.display = 'grid';
                 higher_diploma.style.display = 'none';
             }
         }
