@@ -34,9 +34,9 @@ input::-webkit-inner-spin-button {
     display: none;
 }
 .form-check label{
-    
     margin:0 1rem;
 }
+
 .grid-container {
     display: grid;
     grid-template-columns: auto auto auto;
@@ -97,5 +97,9 @@ input::-webkit-inner-spin-button {
         flex: 0 0 100%;
         max-width: 100%;
     }
+}
+
+body{
+    background-color:rgb(202, 228, 243);
 }
 
