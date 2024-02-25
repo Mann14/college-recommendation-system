@@ -42,16 +42,17 @@ input::-webkit-inner-spin-button {
     grid-template-columns: auto auto auto;
     padding:5px 10px;
   }
-@media screen and (max-width:650px) {
+@media screen and (max-width:652px) {
     .grid-container{
         grid-template-columns: 1fr 1fr 1.2fr;
         /* width: 85vw; */
         padding: 0;
     }
     .grid-item label{
-        font-size: 13px;
+        font-size: 12px;
     }
 }
+
 .grid-item {
     border: 0px solid rgba(0, 0, 0, 0.8);
     padding:1px;
@@ -97,9 +98,5 @@ input::-webkit-inner-spin-button {
         flex: 0 0 100%;
         max-width: 100%;
     }
-}
-
-body{
-    background-color:rgb(202, 228, 243);
 }
 
