@@ -2,190 +2,200 @@
 {% block content %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>college recommended system</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="/static/style.css">
-    <script src="/static/cities.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>college recommended system</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="/static/style.css">
+  <script src="/static/cities.js"></script>
 </head>
+
 <body>
-    <section class="gradient-custom">
-        <div class="container py-5 h-100">
-          <div class="row justify-content-center align-items-center h-100">
-            <div class="col-12 col-lg-9 col-xl-7">
-              <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
-                <div class="card-body p-4 p-md-5">
-                  <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Please fill accurate details!</h3>
-                  <form>
-      
-                    <div class="row row1">
-                      <div class="col-md-6">
-      
-                        <div class="form-outline">
-                            <label class="form-label font-weight-bold" for="fullName">Full Name</label>
-                          <input type="text" id="fullName" class="form-control form-control-lg" name="Full_name" required/>
-                        </div>
-      
-                      </div>
-                      <div class="col-md-6">
-      
-                        <div class="form-outline">
-                            <label class="form-label font-weight-bold" for="email">Email</label>
-                          <input type="email" id="email" class="form-control form-control-lg" name="Email" required/>
-                          
-                        </div>
-      
-                      </div>
-                      <div class="col-md-6 pb-2">
-      
-                        <div class="form-outline">
-                            <label class="form-label font-weight-bold" for="family_income">Family Income</label>
-                          <input type="number" id="family_income" class="form-control form-control-lg" name="Family_income" required/>
-                          <label for="family_income" class="form-label label">Please enter income in rupees</label>
-                       
-                        </div>
-      
-                      </div>
+  <section class="gradient-custom">
+    <div class="container py-5 h-100">
+      <div class="row justify-content-center align-items-center h-100">
+        <div class="col-12 col-lg-9 col-xl-7">
+          <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+            <div class="card-body p-4 p-md-5">
+              <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Please fill accurate details!</h3>
+              <form id="form">
+
+                <div class="row row1 row2">
+                  <div class="col-md-6">
+
+                    <div class="form-outline">
+                      <label class="form-label font-weight-bold" for="fullName">Full Name</label>
+                      <input type="text" id="fullName" class="form-control form-control-lg" name="Full_name" required />
                     </div>
-                    <div class="row">
-                      <div class="col-md-6 mb-3 ">
-      
-                        <h6 class="mb-2 pb-1 font-weight-bold">Higher Education: </h6>
-      
-                        <div class="form-check form-check-inline">
-                          <label><input type="radio" name="higher_edu" id="yes" onclick="toggleInput()"> Diploma</label>
-                          <label><input type="radio" name="higher_edu" id="no" onclick="toggleInput()"> 12th</label>
-                        </div>
-                      </div>
+
+                  </div>
+                  <div class="col-md-6">
+
+                    <div class="form-outline">
+                      <label class="form-label font-weight-bold" for="email">Email</label>
+                      <input type="email" id="email" class="form-control form-control-lg" name="Email" required />
 
                     </div>
-                    <div class="row row1 " id="higher_12">
-                        <div class="col-md-6 mb-4">
-        
-                            <label class="form-label select-label font-weight-bold" for="branch">12th Branch</label>
-                          <select class="form-control-lg form-control" id="branch" name="12_branch">
-                            <option value="PCM">PCM</option>
-                            <option value="PCB">PCB</option>
-                            <option value="Commerce">Commerce</option>
-                            <option value="Arts">Arts</option>
-                          </select>
-                        </div>
-                    <br>
-                      
-                      <div class="col-md-6">
-      
-                        <div class="form-outline">
-                            <label class="form-label font-weight-bold" for="12th_marks">12th Percentage</label>
-                          <input type="number" id="12th_marks" max="100" min="0" class="form-control form-control-lg" name="12th_per" required/>
-                       
-                        </div>
-      
-                      </div>
-                    </div>
-                    <div class="row row1" id="diploma1">
-                        <div class="col-md-6 mb-4">
-        
-                            <label class="form-label select-label font-weight-bold" for="branch">Diploma Branch</label>
-                          <select class="form-control-lg form-control" id="branch" name="diploma_branch">
-                            <option value="Management">Management</option>
-                            <option value="Medical">Medical</option>
-                            <option value="Engineering">Engineering</option>
-                            <option value="Arts">Arts</option>
-                          </select>
-                          
-                        </div>
-                    <br>
-                      
-                      <div class="col-md-6 mb-4 pb-2">
-      
-                        <div class="form-outline">
-                            <label class="form-label font-weight-bold " for="diploma">Diploma Percentage</label>
-                          <input type="number" id="diploma" max="100" min="0" class="form-control form-control-lg" name="diploma_per" required/>
-                          
-                       
-                        </div>
-      
-                      </div>
-                    </div>
-      
-                    <div class="row row1">
-                      <div class="col-md-6 pb-2">
-      
-                        <div class="form-outline">
-                        
-                          <label class="form-label font-weight-bold" for="jee_rank">JEE Rank</label>
-                          <input type="number" id="jee_rank" class="form-control form-control-lg" name="jee_rank" required/>
-                          <label for="jee_rank" class="form-label label">Please enter rank in numbers</label>
-                          
 
-                        </div>
-      
-                      </div>
-                      <div class="col-md-6">
-      
-                        <div class="form-outline">
-                          <label class="form-label font-weight-bold" for="state">State</label>
-                          <select onchange="print_city('city', this.selectedIndex);" id="state" name ="State" class="form-control form-control-lg" required></select>
-                        </div>
-      
-                      </div>
-                      <div class="col-md-6 pb-2">
-      
-                        <div class="form-outline">
-                          <label class="form-label font-weight-bold" for="city">City</label>
-                          <select id ="city" class="form-control form-control-lg" name="City" required ></select>
-                          <script language="javascript">print_state("state");</script>
-                        </div>
-      
-                      </div>
-                      
+                  </div>
+                  <div class="col-md-6 pb-2">
+
+                    <div class="form-outline">
+                      <label class="form-label font-weight-bold" for="family_income">Family Income</label>
+                      <input type="number" id="family_income" class="form-control form-control-lg" name="Family_income"
+                        required />
+                      <label for="family_income" class="form-label label">Please enter income in rupees</label>
+
                     </div>
-      
-                    <div class="row">
-                      <div class="col-12">
-      
-                        <label class="form-label select-label font-weight-bold">Choose Interest</label> <br/>
-                        <div class="grid-container">
-                          <div class="grid-item">
-                            <input type="checkbox">&nbsp;<label>Business</label>
-                          </div>
-                          <div class="grid-item">
-                            <input type="checkbox">&nbsp;<label>Administration</label>
-                          </div>
-                          <div class="grid-item">
-                            <input type="checkbox">&nbsp;<label>Entrepreneurship</label>
-                          </div>
-                          <div class="grid-item">
-                            <input type="checkbox">&nbsp;<label>Finance</label>
-                           </div>
-                          <div class="grid-item">
-                            <input type="checkbox">&nbsp;<label>Marketing</label>
-                          </div>
-                          <div class="grid-item">
-                            <input type="checkbox">&nbsp;<label>Leadership</label>
-                          </div>
-                          <div class="grid-item">
-                            <input type="checkbox">&nbsp;<label>Technology</label>
-                          </div>
-                          <div class="grid-item">
-                            <input type="checkbox">&nbsp;<label>Networking</label>
-                          </div>
-                          <div class="grid-item">
-                            <input type="checkbox">&nbsp;<label>Software development</label>
-                          </div>
-                          
-                          <div class="grid-item">
-                            <input type="checkbox">&nbsp;<label>Engineering</label>
-                          </div>
-                          <div class="grid-item">
-                            <input type="checkbox">&nbsp;<label>Innovation</label>
-                          </div>
-                          <div class="grid-item">
-                            <input type="checkbox">&nbsp;<label>Problem-solving</label>
-                          </div>
-                          <!-- <div class="grid-item">
+
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6 mb-3 ">
+
+                    <h6 class="mb-2 pb-1 font-weight-bold">Higher Education: </h6>
+
+                    <div class="form-check form-check-inline">
+                      <label><input type="radio" name="higher_edu" id="yes" onclick="toggleInput()"> Diploma</label>
+                      <label><input type="radio" name="higher_edu" id="no" onclick="toggleInput()"> 12th</label>
+                    </div>
+                  </div>
+
+                </div>
+                <div class="row row1 " id="higher_12">
+                  <div class="col-md-6 mb-4">
+
+                    <label class="form-label select-label font-weight-bold" for="12th_branch">12th Branch</label>
+                    <select class="form-control-lg form-control" id="12th_branch" name="branch_12">
+                      <option value="" disabled selected>Select an option</option>
+                      <option value="PCM">PCM</option>
+                      <option value="PCB">PCB</option>
+                      <option value="Commerce">Commerce</option>
+                      <option value="Arts">Arts</option>
+                    </select>
+                  </div>
+                  <br>
+
+                  <div class="col-md-6">
+
+                    <div class="form-outline">
+                      <label class="form-label font-weight-bold" for="12th_marks">12th Percentage</label>
+                      <input type="number" id="12th_marks" max="100" min="0" class="form-control form-control-lg"
+                        name="per_12"/>
+
+                    </div>
+
+                  </div>
+                </div>
+                <div class="row row1" id="diploma1">
+                  <div class="col-md-6 mb-4">
+
+                    <label class="form-label select-label font-weight-bold" for="branch">Diploma Branch</label>
+                    <select class="form-control-lg form-control" id="branch" name="diploma_branch">
+                      <option value="" disabled selected>Select an option</option>
+                      <option value="Management">Management</option>
+                      <option value="Medical">Medical</option>
+                      <option value="Engineering">Engineering</option>
+                      <option value="Arts">Arts</option>
+                    </select>
+
+                  </div>
+                  <br>
+
+                  <div class="col-md-6 mb-4 pb-2">
+
+                    <div class="form-outline row3">
+                      <label class="form-label font-weight-bold " for="diploma">Diploma Percentage</label>
+                      <input type="number" id="diploma" max="100" min="0" class="form-control form-control-lg"
+                        name="diploma_per"/>
+
+
+                    </div>
+
+                  </div>
+                </div>
+
+                <div class="row row1 row2">
+                  <div class="col-md-6 pb-2">
+
+                    <div class="form-outline">
+
+                      <label class="form-label font-weight-bold" for="jee_rank">JEE Rank</label>
+                      <input type="number" id="jee_rank" class="form-control form-control-lg" name="jee_rank"
+                        required />
+                      <label for="jee_rank" class="form-label label">Please enter rank in numbers</label>
+
+
+                    </div>
+
+                  </div>
+                  <div class="col-md-6">
+
+                    <div class="form-outline">
+                      <label class="form-label font-weight-bold" for="state">State</label>
+                      <select onchange="print_city('city', this.selectedIndex);" id="state" name="State"
+                        class="form-control form-control-lg" required></select>
+                    </div>
+
+                  </div>
+                  <div class="col-md-6 pb-2">
+
+                    <div class="form-outline">
+                      <label class="form-label font-weight-bold" for="city">City</label>
+                      <select id="city" class="form-control form-control-lg" name="City" required></select>
+                      <script language="javascript">print_state("state");</script>
+                    </div>
+
+                  </div>
+
+                </div>
+
+                <div class="row">
+                  <div class="col-12">
+
+                    <label class="form-label select-label font-weight-bold" for="interest">Choose Interest</label> <br />
+                    <div class="grid-container">
+                      <div class="grid-item">
+                        <input type="checkbox" id="interest" name="interest" value="">&nbsp;<label>Business</label>
+                      </div>
+                      <div class="grid-item">
+                        <input type="checkbox" id="interest" name="interest" value="">&nbsp;<label>Administration</label>
+                      </div>
+                      <div class="grid-item">
+                        <input type="checkbox" id="interest" name="interest" value="">&nbsp;<label>Entrepreneurship</label>
+                      </div>
+                      <div class="grid-item">
+                        <input type="checkbox" id="interest" name="interest" value="">&nbsp;<label>Finance</label>
+                      </div>
+                      <div class="grid-item">
+                        <input type="checkbox" id="interest" name="interest" value="">&nbsp;<label>Marketing</label>
+                      </div>
+                      <div class="grid-item">
+                        <input type="checkbox" id="interest" name="interest" value="">&nbsp;<label>Leadership</label>
+                      </div>
+                      <div class="grid-item">
+                        <input type="checkbox" id="interest" name="interest" value="">&nbsp;<label>Technology</label>
+                      </div>
+                      <div class="grid-item">
+                        <input type="checkbox" id="interest" name="interest" value="">&nbsp;<label>Networking</label>
+                      </div>
+                      <div class="grid-item">
+                        <input type="checkbox" id="interest" name="interest" value="">&nbsp;<label>Software development</label>
+                      </div>
+
+                      <div class="grid-item">
+                        <input type="checkbox" id="interest" name="interest" value="">&nbsp;<label>Engineering</label>
+                      </div>
+                      <div class="grid-item">
+                        <input type="checkbox" id="interest" name="interest" value="">&nbsp;<label>Innovation</label>
+                      </div>
+                      <div class="grid-item">
+                        <input type="checkbox" id="interest" name="interest" value="">&nbsp;<label>Problem-solving</label>
+                      </div>
+                      <!-- <div class="grid-item">
                             <input type="checkbox">&nbsp;<label>Science</label>
                           </div>
                           <div class="grid-item">
@@ -222,39 +232,55 @@
                           <div class="grid-item">
                             <input type="checkbox">&nbsp;<label>Environment</label>
                           </div> -->
-                        </div>
-                        <label class="label">Share your preferences to tailor recommendations, finding the best education fit aligned with your goals.</label>
                     </div>
-                    
-                    <br>
+                    <div id="error-message" style="display: none; color: red;">Please select only five options.</div><br>
+                    <label class="label">Share your preferences to tailor recommendations, finding the best education
+                      fit aligned with your goals.</label>
+                  </div>
 
-                    <div class="mt-4-pt-2">
-                      <input  class="btn btn-primary btn-lg" style="margin-top: 20px;" type="submit" value="Submit" />
-                    </div>
-      
-                  </form>
-                </div>
-              </div>
+                  <br>
+
+                  <div class="mt-4-pt-2">
+                    <input class="btn btn-primary btn-lg" style="margin-top: 20px;" type="submit" value="Submit" />
+                  </div>
+
+              </form>
             </div>
           </div>
         </div>
-      </section>
-      <script>
-        function toggleInput() {
-            var yesRadio = document.getElementById('yes');
-            var noRadio = document.getElementById('no');
-            var higher_123 = document.getElementById('higher_12');
-            var higher_diploma= document.getElementById('diploma1');
+      </div>
+    </div>
+  </section>
+  <script>
+    function toggleInput() {
+      var yesRadio = document.getElementById('yes');
+      var noRadio = document.getElementById('no');
+      var higher_123 = document.getElementById('higher_12');
+      var higher_diploma = document.getElementById('diploma1');
+      
+      if (yesRadio.checked) {
+        higher_123.style.display = 'none';
+        higher_diploma.style.display = 'grid';
 
-            if (yesRadio.checked) {
-                higher_123.style.display = 'none';
-                higher_diploma.style.display = 'grid';
-            } else {
-                higher_123.style.display = 'grid';
-                higher_diploma.style.display = 'none';
-            }
-        }
-      </script>
+      } else {
+        higher_123.style.display = 'grid';
+        higher_diploma.style.display = 'none';
+      }
+    }
+    document.getElementById("form").addEventListener("submit", function (event) {
+      var selectedCheckboxes = document.querySelectorAll('input[name="interest"]:checked');
+      if (selectedCheckboxes.length > 5) {
+        event.preventDefault(); // Prevent form submission
+        document.getElementById("error-message").style.display = "block";
+      }
+      else {
+        console.log("submitted")
+        document.getElementById("error-message").style.display = "none";
+      }
+    });
+
+  </script>
 </body>
+
 </html>
 {% endblock %}
