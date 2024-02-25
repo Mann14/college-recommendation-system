@@ -14,54 +14,55 @@
 </head>
 
 <body>
-    <section class="gradient-custom">
-        <div class="container py-5 h-100">
-          <div class="row justify-content-center align-items-center h-100">
-            <div class="col-12 col-lg-9 col-xl-7">
-              <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
-                <div class="card-body p-4 p-md-5">
-                  <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Please fill accurate details!</h3>
-                  <form>
-      
-                    <div class="row row1">
-                      <div class="col-md-6">
-      
-                        <div class="form-outline">
-                            <label class="form-label font-weight-bold" for="fullName">Full Name</label>
-                          <input type="text" id="fullName" class="form-control form-control-lg" name="Full_name" required/>
-                        </div>
-      
-                      </div>
-                      <div class="col-md-6">
-      
-                        <div class="form-outline">
-                            <label class="form-label font-weight-bold" for="email">Email</label>
-                          <input type="email" id="email" class="form-control form-control-lg" name="Email" required/>
-                          
-                        </div>
-      
-                      </div>
-                      <div class="col-md-6 pb-2">
-      
-                        <div class="form-outline">
-                            <label class="form-label font-weight-bold" for="family_income">Family Income</label>
-                          <input type="number" id="family_income" class="form-control form-control-lg" name="Family_income" required/>
-                          <label for="family_income" class="form-label label">Please enter income in rupees</label>
-                       
-                        </div>
-      
-                      </div>
+  <section class="gradient-custom">
+    <div class="container py-5 h-100">
+      <div class="row justify-content-center align-items-center h-100">
+        <div class="col-12 col-lg-9 col-xl-7">
+          <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+            <div class="card-body p-4 p-md-5">
+              <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Please fill accurate details!</h3>
+              <form id="form" action="/submit_form" method="post">
+
+                <div class="row row1 row2">
+                  <div class="col-md-6">
+
+                    <div class="form-outline">
+                      <label class="form-label font-weight-bold" for="fullName">Full Name</label>
+                      <input type="text" id="fullName" class="form-control form-control-lg" name="Full_name" required />
                     </div>
-                    <div class="row">
-                      <div class="col-md-6 mb-3 ">
-      
-                        <h6 class="mb-2 pb-1 font-weight-bold">Higher Education: </h6>
-      
-                        <div class="form-check form-check-inline">
-                          <label><input type="radio" name="higher_edu" id="yes" onclick="toggleInput()"> Diploma</label>
-                          <label><input type="radio" name="higher_edu" id="no" onclick="toggleInput()"> 12th</label>
-                        </div>
-                      </div>
+
+                  </div>
+                  <div class="col-md-6">
+
+                    <div class="form-outline">
+                      <label class="form-label font-weight-bold" for="email">Email</label>
+                      <input type="email" id="email" class="form-control form-control-lg" name="Email" required />
+
+                    </div>
+
+                  </div>
+                  <div class="col-md-6 pb-2">
+
+                    <div class="form-outline">
+                      <label class="form-label font-weight-bold" for="family_income">Family Income</label>
+                      <input type="number" id="family_income" class="form-control form-control-lg" name="Family_income"
+                        required />
+                      <label for="family_income" class="form-label label">Please enter income in rupees</label>
+
+                    </div>
+
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6 mb-3 ">
+
+                    <h6 class="mb-2 pb-1 font-weight-bold">Higher Education: </h6>
+
+                    <div class="form-check form-check-inline">
+                      <label><input type="radio" name="higher_edu" id="yes" onclick="toggleInput()" onchange="setValue()"> Diploma</label>
+                      <label><input type="radio" name="higher_edu" id="no" onclick="toggleInput()" onchange="setValue()"> 12th</label>
+                    </div>
+                  </div>
 
                 </div>
                 <div class="row row1 " id="higher_12">
@@ -83,7 +84,19 @@
                     <div class="form-outline">
                       <label class="form-label font-weight-bold" for="12th_marks">12th Percentage</label>
                       <input type="number" id="12th_marks" max="100" min="0" class="form-control form-control-lg"
-                        name="per_12"/>
+                        name="per_12" onchange="setValue()"/>
+
+                    </div>
+
+                  </div>
+                  <div class="col-md-6 pb-2">
+
+                    <div class="form-outline">
+
+                      <label class="form-label font-weight-bold" for="jee_rank">JEE Rank</label>
+                      <input type="number" id="jee_rank" class="form-control form-control-lg" name="jee_rank"/>
+                      <label for="jee_rank" class="form-label label">Please enter rank in numbers</label>
+
 
                     </div>
 
@@ -109,7 +122,7 @@
                     <div class="form-outline row3">
                       <label class="form-label font-weight-bold " for="diploma">Diploma Percentage</label>
                       <input type="number" id="diploma" max="100" min="0" class="form-control form-control-lg"
-                        name="diploma_per"/>
+                        name="diploma_per" />
 
 
                     </div>
@@ -118,118 +131,123 @@
                 </div>
 
                 <div class="row row1 row2">
+
+                  <div class="col-md-6">
+
+                    <div class="form-outline">
+                      <label class="form-label font-weight-bold" for="state">State</label>
+                      <select onchange="print_city('city', this.selectedIndex);" id="state" name="State"
+                        class="form-control form-control-lg" required></select>
+                    </div>
+
+                  </div>
                   <div class="col-md-6 pb-2">
 
                     <div class="form-outline">
-
-                      <label class="form-label font-weight-bold" for="jee_rank">JEE Rank</label>
-                      <input type="number" id="jee_rank" class="form-control form-control-lg" name="jee_rank"
-                        required />
-                      <label for="jee_rank" class="form-label label">Please enter rank in numbers</label>
-
-
-                        </div>
-      
-                      </div>
-                      <div class="col-md-6">
-      
-                        <div class="form-outline">
-                          <label class="form-label font-weight-bold" for="state">State</label>
-                          <select onchange="print_city('city', this.selectedIndex);" id="state" name ="State" class="form-control form-control-lg" required></select>
-                        </div>
-      
-                      </div>
-                      <div class="col-md-6 pb-2">
-      
-                        <div class="form-outline">
-                          <label class="form-label font-weight-bold" for="city">City</label>
-                          <select id ="city" class="form-control form-control-lg" name="City" required ></select>
-                          <script language="javascript">print_state("state");</script>
-                        </div>
-      
-                      </div>
-                      
+                      <label class="form-label font-weight-bold" for="city">City</label>
+                      <select id="city" class="form-control form-control-lg" name="City" required></select>
+                      <script language="javascript">print_state("state");</script>
                     </div>
-      
-                    <div class="row">
-                      <div class="col-12">
-      
-                        <label class="form-label select-label font-weight-bold">Choose Interest</label> <br/>
-                        <div class="grid-container">
-                          <div class="grid-item">
-                            <input type="checkbox">&nbsp;<label>Business</label>
-                          </div>
-                          <div class="grid-item">
-                            <input type="checkbox">&nbsp;<label>Administration</label>
-                          </div>
-                          <div class="grid-item">
-                            <input type="checkbox">&nbsp;<label>Entrepreneurship</label>
-                          </div>
-                          <div class="grid-item">
-                            <input type="checkbox">&nbsp;<label>Finance</label>
-                           </div>
-                          <div class="grid-item">
-                            <input type="checkbox">&nbsp;<label>Marketing</label>
-                          </div>
-                          <div class="grid-item">
-                            <input type="checkbox">&nbsp;<label>Leadership</label>
-                          </div>
-                          <div class="grid-item">
-                            <input type="checkbox">&nbsp;<label>Technology</label>
-                          </div>
-                          <div class="grid-item">
-                            <input type="checkbox">&nbsp;<label>Networking</label>
-                          </div>
-                          <div class="grid-item">
-                            <input type="checkbox">&nbsp;<label>Software development</label>
-                          </div>
-                          
-                          <div class="grid-item">
-                            <input type="checkbox">&nbsp;<label>Engineering</label>
-                          </div>
-                          <div class="grid-item">
-                            <input type="checkbox">&nbsp;<label>Innovation</label>
-                          </div>
-                          <div class="grid-item">
-                            <input type="checkbox">&nbsp;<label>Problem-solving</label>
-                          </div>
-                          <!-- <div class="grid-item">
-                            <input type="checkbox">&nbsp;<label>Science</label>
-                          </div>
-                          <div class="grid-item">
-                            <input type="checkbox">&nbsp;<label>Design</label>
-                          </div>
-                          <div class="grid-item">
-                            <input type="checkbox">&nbsp;<label>Manufacturing</label>
-                          </div>
-                          <div class="grid-item">
-                            <input type="checkbox">&nbsp;<label>Healthcare</label>
-                          </div>
-                          
-                          <div class="grid-item">
-                            <input type="checkbox">&nbsp;<label>Pharmaceuticals</label>
-                          </div>
-                          <div class="grid-item">
-                            <input type="checkbox">&nbsp;<label>Medications</label>
-                          </div>
-                          <div class="grid-item">
-                            <input type="checkbox">&nbsp;<label>Research</label>
-                          </div>
-                          <div class="grid-item">
-                            <input type="checkbox">&nbsp;<label>Farming</label>
-                          </div>
-                          <div class="grid-item">
-                            <input type="checkbox">&nbsp;<label>Drug interactions</label>
-                          </div>
-                          <div class="grid-item">
-                            <input type="checkbox">&nbsp;<label>Sustainability</label>
-                          </div>
-                          <div class="grid-item">
-                            <input type="checkbox">&nbsp;<label>Food production</label>
-                          </div>
-                          <div class="grid-item">
-                            <input type="checkbox">&nbsp;<label>Environment</label>
-                          </div> -->
+
+                  </div>
+
+                </div>
+
+                <div class="row">
+                  <div class="col-12">
+
+                    <label class="form-label select-label font-weight-bold" for="interest">Choose Interest</label> <br />
+                    <div class="grid-container">
+                      <div class="grid-item">
+                        <input type="checkbox" id="interest" name="interest" value="">&nbsp;<label>Machine Learning</label>
+                      </div>
+                      <div class="grid-item">
+                        <input type="checkbox" id="interest" name="interest" value="">&nbsp;<label>Networking</label>
+                      </div>
+                      <div class="grid-item">
+                        <input type="checkbox" id="interest" name="interest" value="">&nbsp;<label>Machine Design</label>
+                      </div>
+                      <div class="grid-item">
+                        <input type="checkbox" id="interest" name="interest" value="">&nbsp;<label>Construction</label>
+                      </div>
+                      <div class="grid-item">
+                        <input type="checkbox" id="interest" name="interest" value="">&nbsp;<label>Sensors</label>
+                      </div>
+                      <div class="grid-item">
+                        <input type="checkbox" id="interest" name="interest" value="">&nbsp;<label>Circuit Analysis</label>
+                      </div>
+                      <div class="grid-item">
+                        <input type="checkbox" id="interest" name="interest" value="">&nbsp;<label>Electronic Devices</label>
+                      </div>
+                      <div class="grid-item">
+                        <input type="checkbox" id="interest" name="interest" value="">&nbsp;<label>Business</label>
+                      </div>
+                      <div class="grid-item">
+                        <input type="checkbox" id="interest" name="interest" value="">&nbsp;<label>Business</label>
+                      </div>
+                      <div class="grid-item">
+                        <input type="checkbox" id="interest" name="interest" value="">&nbsp;<label>Business</label>
+                      </div>
+                      <div class="grid-item">
+                        <input type="checkbox" id="interest" name="interest" value="">&nbsp;<label>Business</label>
+                      </div>
+                      <div class="grid-item">
+                        <input type="checkbox" id="interest" name="interest" value="">&nbsp;<label>Business</label>
+                      </div>
+                      <div class="grid-item">
+                        <input type="checkbox" id="interest" name="interest" value="">&nbsp;<label>Business</label>
+                      </div>
+                      <div class="grid-item">
+                        <input type="checkbox" id="interest" name="interest" value="">&nbsp;<label>Business</label>
+                      </div>
+                      <div class="grid-item">
+                        <input type="checkbox" id="interest" name="interest" value="">&nbsp;<label>Business</label>
+                      </div>
+                      <div class="grid-item">
+                        <input type="checkbox" id="interest" name="interest" value="">&nbsp;<label>Business</label>
+                      </div>
+                      <div class="grid-item">
+                        <input type="checkbox" id="interest" name="interest" value="">&nbsp;<label>Business</label>
+                      </div>
+                      <div class="grid-item">
+                        <input type="checkbox" id="interest" name="interest" value="">&nbsp;<label>Business</label>
+                      </div>
+                      <div class="grid-item">
+                        <input type="checkbox" id="interest" name="interest" value="">&nbsp;<label>Business</label>
+                      </div>
+                      <div class="grid-item">
+                        <input type="checkbox" id="interest" name="interest" value="">&nbsp;<label>Business</label>
+                      </div>
+                      <div class="grid-item">
+                        <input type="checkbox" id="interest" name="interest" value="">&nbsp;<label>Business</label>
+                      </div>
+                      <div class="grid-item">
+                        <input type="checkbox" id="interest" name="interest" value="">&nbsp;<label>Business</label>
+                      </div>
+                      <div class="grid-item">
+                        <input type="checkbox" id="interest" name="interest" value="">&nbsp;<label>Business</label>
+                      </div>
+                      <div class="grid-item">
+                        <input type="checkbox" id="interest" name="interest" value="">&nbsp;<label>Business</label>
+                      </div>
+                      <div class="grid-item">
+                        <input type="checkbox" id="interest" name="interest" value="">&nbsp;<label>Business</label>
+                      </div>
+                      <div class="grid-item">
+                        <input type="checkbox" id="interest" name="interest" value="">&nbsp;<label>Business</label>
+                      </div>
+                      <div class="grid-item">
+                        <input type="checkbox" id="interest" name="interest" value="">&nbsp;<label>Business</label>
+                      </div>
+                      <div class="grid-item">
+                        <input type="checkbox" id="interest" name="interest" value="">&nbsp;<label>Business</label>
+                      </div>
+                      <div class="grid-item">
+                        <input type="checkbox" id="interest" name="interest" value="">&nbsp;<label>Business</label>
+                      </div>
+                      <div class="grid-item">
+                        <input type="checkbox" id="interest" name="interest" value="">&nbsp;<label>Business</label>
+                      </div>
                     </div>
                     <div id="error-message" style="display: none; color: red;">Please select only five options.</div><br>
                     <label class="label">Share your preferences to tailor recommendations, finding the best education
@@ -250,6 +268,12 @@
     </div>
   </section>
   <script>
+    function setValue() {
+      var per = document.getElementById('diploma_per');
+      if (!per.value.trim()) {
+        per.value = 0;
+      }
+    }
     function toggleInput() {
       var yesRadio = document.getElementById('yes');
       var noRadio = document.getElementById('no');

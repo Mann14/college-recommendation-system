@@ -1,8 +1,11 @@
 from flask import Flask, render_template, request, redirect, url_for
 from flask_pymongo import PyMongo
+from pymongo import MongoClient
 app = Flask(__name__)
-app.config["MONGO_URI"] = "mongodb://localhost:27017/myDatabase"
-mongo = PyMongo(app)
+# mongo = PyMongo(app)
+client= MongoClient("mongodb://127.0.0.1:27017/")
+db = client['college_recommendation_system']
+collection = db['registered_data']
 
 def get_recommendation():
     # Logic to predict branch goes here
@@ -24,10 +27,48 @@ def show_form():
         return redirect(url_for('index'))
     return render_template('index.html')
 
+def submit():
+    if request.method == 'POST':
+        # Extract form data
+        full_name = request.form['Full_name']
+        email = request.form['Email']
+        family_income = int(request.form['Family_income'])
+        higher_edu = request.form['higher_edu']
+        branch = request.form.get('12th_branch') 
+        per_12 = int(float(request.form.get('per_12', 0)))
+        diploma_branch = request.form.get('diploma_branch') 
+        diploma_per = int(float(request.form.get('diploma_per',0)))
+        jee_rank = int(float(request.form.get('jee_rank',0)))
+        state = request.form['State']
+        city = request.form['City']
+        interests = request.form.getlist('interest')  # Get list of selected interests
+
+        # Create a document to insert into MongoDB
+        student_data = {
+            'full_name': full_name,
+            'email': email,
+            'family_income': family_income,
+            'higher_edu': higher_edu,
+            'branch': branch,
+            'per_12': per_12,
+            'diploma_branch': diploma_branch,
+            'diploma_per': diploma_per,
+            'jee_rank': jee_rank,
+            'state': state,
+            'city': city,
+            'interests': interests
+        }
+
+        # Insert the document into MongoDB
+        collection.insert_one(student_data)
+
+        print('Form data submitted successfully!')
+
 @app.route('/submit_form', methods=['POST'])
 def submit_form():
     # Process form data
     # Redirect to loading.html
+    submit()
     branch = get_recommendation()
     # Render HTML template based on branch recommendation
     template_path = f'recommends/{branch.lower()}.html'
@@ -40,4 +81,3 @@ def output():
 
 if __name__ == '__main__':
     app.run(debug=True)
-
