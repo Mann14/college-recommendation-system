@@ -2,10 +2,15 @@ from flask import Flask, render_template, request, redirect, url_for
 from flask_pymongo import PyMongo
 from pymongo import MongoClient
 app = Flask(__name__)
+<<<<<<< HEAD
 # mongo = PyMongo(app)
 client= MongoClient("mongodb://127.0.0.1:27017/")
 db = client['college_recommendation_system']
 collection = db['registered_data']
+=======
+app.config["MONGO_URI"] = "mongodb://127.0.0.1:27017/college_rec_system"
+mongo = PyMongo(app)
+>>>>>>> 1e576862a3bfc34abee200aaa72f993ca9cc5526
 
 def get_recommendation():
     # Logic to predict branch goes here
