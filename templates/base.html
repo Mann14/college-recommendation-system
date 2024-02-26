@@ -56,8 +56,20 @@
           background-color: rgba(54, 162, 235, 1);
           color: rgb(5, 5, 5);
           font-weight: 500;
-          overflow-x: hidden;
+          overflow: hidden;
       }
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        height: auto; /* Adjust height for mobile view */
+        align-items: flex-start; /* Align items to the start in mobile view */
+    }
+
+    .navbar img {
+        margin-bottom: 10px; /* Add some spacing between logo and other elements in mobile view */
+    }
+}
   
       .logo {
           /* Remove position:absolute */
@@ -84,9 +96,9 @@
       }
       .graph-iframe {
           width: 100%; /* Cover 100% width of the container */
-          height: calc(100vh - 5rem); /* Adjust height to fill remaining viewport */
-          margin-top: 5rem; /* Shift iframe below navbar */
-          padding: 0; /* Add padding to the iframe content */
+          height: calc(100vh - 15rem); /* Adjust height to fill remaining viewport */
+          margin-bottom: 0;
+          padding: 5px; /* Add padding to the iframe content */
           box-sizing: border-box; /* Include padding and border in the total width and height */
       }
       
@@ -153,6 +165,25 @@
             font-size: 22px;
         }
       }
+      .disclaimer {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .disclaimer p {
+            font-size: 18px;
+            line-height: 1.5;
+            color: #333;
+            margin: 0;
+        }
+        .disclaimer h2 {
+    font-size: 20px; /* Increase font size */
+    font-weight: bold; /* Bold text */
+    margin-bottom: 2px; /* Add some space below */
+}
       
   </style>
 </head>
@@ -174,6 +205,11 @@
     </nav>
 
     {% block content %}
+    <div class = "disclaimer">
+        <p>Choosing a branch is a personal decision. Explore your interests, seek career opportunities, and engage with professionals in your chosen field. Assess if the role aligns with your passion and skills. The world of technology holds endless possibilities—discover where your interests meet the opportunities available.</p>
+        <h2>DISCLAIMER:</h2>
+        <p>Course recommendations provided are based on available information; individual success is not guaranteed, so explore further and choose wisely.</p>
+    </div>
     <div class="graph-iframe">
       <iframe src="graph" height="500" width="1000" frameborder="0"></iframe>
     </div>

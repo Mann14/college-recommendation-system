@@ -1,6 +1,8 @@
 from flask import Flask, render_template, request, redirect, url_for
-
+from flask_pymongo import PyMongo
 app = Flask(__name__)
+app.config["MONGO_URI"] = "mongodb://localhost:27017/myDatabase"
+mongo = PyMongo(app)
 
 def get_recommendation():
     # Logic to predict branch goes here
