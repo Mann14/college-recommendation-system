@@ -34,11 +34,11 @@ def submit():
         email = request.form['Email']
         family_income = int(request.form['Family_income'])
         higher_edu = request.form['higher_edu']
-        branch = request.form.get('12th_branch') if '12th_branch' in request.form else None
-        per_12 = int(request.form.get('per_12', 0))
-        diploma_branch = request.form.get('diploma_branch') if 'diploma_branch' in request.form else None
-        diploma_per = int(request.form.get('diploma_per', 0))
-        jee_rank = int(request.form['jee_rank'])
+        branch = request.form.get('12th_branch') 
+        per_12 = int(float(request.form.get('per_12', 0)))
+        diploma_branch = request.form.get('diploma_branch') 
+        diploma_per = int(float(request.form.get('diploma_per',0)))
+        jee_rank = int(float(request.form.get('jee_rank',0)))
         state = request.form['State']
         city = request.form['City']
         interests = request.form.getlist('interest')  # Get list of selected interests
