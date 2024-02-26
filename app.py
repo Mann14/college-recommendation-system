@@ -34,16 +34,6 @@ def submit():
         email = request.form['Email']
         family_income = int(request.form['Family_income'])
         higher_edu = request.form['higher_edu']
-<<<<<<< HEAD
-        branch = request.form.get('12th_branch') 
-        per_12 = int(float(request.form.get('per_12', 0)))
-        diploma_branch = request.form.get('diploma_branch') 
-        diploma_per = int(float(request.form.get('diploma_per',0)))
-        jee_rank = int(float(request.form.get('jee_rank',0)))
-        state = request.form['State']
-        city = request.form['City']
-        interests = request.form.getlist('interest')  # Get list of selected interests
-=======
         branch = request.form.get('branch_12') 
         per_12 = request.form.get('per_12', 0)
         try:
@@ -64,7 +54,6 @@ def submit():
         state = request.form['State']
         city = request.form['City']
         interests = request.form.getlist('interest')
->>>>>>> aa5fd86252391abd47fc0c4fa4cd7fc661ee0686
 
         # Create a document to insert into MongoDB
         student_data = {
@@ -73,17 +62,10 @@ def submit():
             'family_income': family_income,
             'higher_edu': higher_edu,
             'branch': branch,
-<<<<<<< HEAD
-            'per_12': per_12,
-            'diploma_branch': diploma_branch,
-            'diploma_per': diploma_per,
-            'jee_rank': jee_rank,
-=======
             'per_12': per_12_int,
             'diploma_branch': diploma_branch,
             'diploma_per': diploma_per_int,
             'jee_rank': jee_rank_int,
->>>>>>> aa5fd86252391abd47fc0c4fa4cd7fc661ee0686
             'state': state,
             'city': city,
             'interests': interests
