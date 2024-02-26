@@ -2,15 +2,10 @@ from flask import Flask, render_template, request, redirect, url_for
 from flask_pymongo import PyMongo
 from pymongo import MongoClient
 app = Flask(__name__)
-<<<<<<< HEAD
 # mongo = PyMongo(app)
 client= MongoClient("mongodb://127.0.0.1:27017/")
 db = client['college_recommendation_system']
 collection = db['registered_data']
-=======
-app.config["MONGO_URI"] = "mongodb://127.0.0.1:27017/college_rec_system"
-mongo = PyMongo(app)
->>>>>>> 1e576862a3bfc34abee200aaa72f993ca9cc5526
 
 def get_recommendation():
     # Logic to predict branch goes here
@@ -39,14 +34,26 @@ def submit():
         email = request.form['Email']
         family_income = int(request.form['Family_income'])
         higher_edu = request.form['higher_edu']
-        branch = request.form.get('12th_branch') 
-        per_12 = int(float(request.form.get('per_12', 0)))
+        branch = request.form.get('branch_12') 
+        per_12 = request.form.get('per_12', 0)
+        try:
+            per_12_int = int(per_12)
+        except:
+            per_12_int = 0
         diploma_branch = request.form.get('diploma_branch') 
-        diploma_per = int(float(request.form.get('diploma_per',0)))
-        jee_rank = int(float(request.form.get('jee_rank',0)))
+        diploma_per = request.form.get('diploma_per',0)
+        try:
+            diploma_per_int = int(diploma_per)
+        except:
+            diploma_per_int  = 0
+        jee_rank = request.form.get('jee_rank',0)
+        try:
+            jee_rank_int = int(jee_rank)
+        except:
+            jee_rank_int = 0
         state = request.form['State']
         city = request.form['City']
-        interests = request.form.getlist('interest')  # Get list of selected interests
+        interests = request.form.getlist('interest')
 
         # Create a document to insert into MongoDB
         student_data = {
@@ -55,10 +62,10 @@ def submit():
             'family_income': family_income,
             'higher_edu': higher_edu,
             'branch': branch,
-            'per_12': per_12,
+            'per_12': per_12_int,
             'diploma_branch': diploma_branch,
-            'diploma_per': diploma_per,
-            'jee_rank': jee_rank,
+            'diploma_per': diploma_per_int,
+            'jee_rank': jee_rank_int,
             'state': state,
             'city': city,
             'interests': interests
@@ -86,4 +93,3 @@ def output():
 
 if __name__ == '__main__':
     app.run(debug=True)
-
