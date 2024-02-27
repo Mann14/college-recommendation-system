@@ -12,9 +12,6 @@
   <link rel="stylesheet" href="/static/style.css">
   <script src="/static/cities.js"></script>
   <style>
-    .hidden {
-      display: none;
-    }
   </style>
 </head>
 
@@ -25,7 +22,6 @@
         <div class="col-12 col-lg-9 col-xl-7">
           <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
             <div class="card-body p-4 p-md-5">
-              <!-- <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Please fill accurate details!</h3> -->
               <form id="form" action="/submit_form" method="post">
 
                 <div class="row row1 row2">
@@ -123,25 +119,20 @@
                   <div class="col-md-6">
                     <div class="form-outline">
                       <label class="form-label select-label font-weight-bold" for="12th_branch">12th Branch</label>
-                      <select class="form-control-lg form-control" id="12th_branch" name="branch_12">
+                      <select class="form-control-lg form-control" id="12th_branch" name="branch_12" onclick="change()">
                         <option value="" disabled selected>Select an option</option>
-                        <option value="PCM">PCM</option>
+                        <option value="PCM" >PCM</option>
                         <option value="PCB">PCB</option>
                         <option value="Commerce">Commerce</option>
                         <option value="Arts">Arts</option>
                       </select>
                     </div>
-
-
-
                   </div>
                   <div class="col-md-6 pb-2">
-
-
-                    <div class="form-outline">
+                  <div class="form-outline">
                       <label class="form-label font-weight-bold" for="12th_marks">12th Percentage</label>
                       <input type="number" id="12th_marks" max="100" min="0" class="form-control form-control-lg"
-                        name="per_12" onchange="setValue()" />
+                        name="per_12" />
                     </div>
 
                   </div>
@@ -152,7 +143,6 @@
                   <div class="col-12">
                     <label for="interest" class="interest font-weight-bold">Interests</label required><br>
                     <div class="interest-container">
-                      <!-- <label for="interest" class="interest">Interests</label required><br> -->
                         
                       <div class="grid-item">
                         <input class="radio-label" type="radio" id="technology" name="interest" value="technology" onclick="toggleButton()">
@@ -186,10 +176,50 @@
                     </div>
                   </div>
                 </div>
+                <!-- <div class="row" id="interest1" style="display: none;">
+                  <div class="col-12">
+                    <label for="interest" class="interest font-weight-bold">Interests</label required><br>
+                    <div class="interest-container">
+                        
+                      <div class="grid-item">
+                        <input class="radio-label" type="radio" id="technology" name="interest" value="technology" onclick="toggleButton()">
+                        <label for="technology" >Medical</label>
+                      </div>
+                      <div class="grid-item">
+                        <input class="radio-label" type="radio" id="administration" name="interest"
+                          value="administration" onclick="toggleButton()">
+                        <label for="administration">Pharmacy</label>
+                      </div>
+                      <div></div>
+                      <div class="grid-item">
+                        <input class="radio-label" type="radio" id="finance-accounting" name="interest"
+                          value="finance-accounting" onclick="toggleButton()">
+                        <label for="finance-accounting" >Dental</label><br>
+                      </div>
+                      <div class="grid-item">
+                        <input class="radio-label" type="radio" id="computer-application" name="interest"
+                          value="computer-application" onclick="toggleButton()">
+                        <label for="computer-application" >Computer Application</label>
+                      </div>
+                      <div></div>
+                      <div class="grid-item">
+                        <input class="radio-label" type="radio" id="pharmacology" name="interest" value="pharmacology" onclick="toggleButton()">
+                        <label for="pharmacology" >Pharmacology</label>
+                      </div>
+                      <div class="grid-item">
+                        <input class="radio-label" type="radio" id="agriculture" name="interest" value="agriculture" onclick="toggleButton()">
+                        <label for="agriculture" >Agriculture</label>
+                      </div>
+                    </div>
+                  </div>
+                </div> -->
                 <div class="row" style="display: none; margin:50px 0;" id="frame_tech">
                   <div class="col-12">
-                    <input class="radio-label" type="radio" id="prev" name="interest" value="prev" onclick="toggleButton()">
-                        <label for="prev">prev</label>
+                    <div style="margin-bottom: 20px;">
+
+                      <input class="radio-label" type="radio" id="prev" name="interest" value="prev" onclick="toggleButton()">
+                          <label for="prev" class="font-weight-bold">Prev</label>
+                    </div>
                     <iframe src="/technology" frameborder="1" id="frame" height="450px" width="100%"></iframe>
 
                   </div>
@@ -197,7 +227,7 @@
                 <div class="row" style="display: none; margin:50px 0;" id="frame_admin">
                   <div class="col-12">
                     <input class="radio-label" type="radio" id="prev" name="interest" value="prev" onclick="toggleButton()">
-                        <label for="prev">prev</label>
+                        <label for="prev" class="font-weight-bold">Prev</label>
                     <iframe src="/administration" frameborder="1" id="frame" height="450px" width="100%"></iframe>
 
                   </div>
@@ -205,7 +235,7 @@
                 <div class="row" style="display: none; margin:50px 0;" id="frame_finance">
                   <div class="col-12">
                     <input class="radio-label" type="radio" id="prev" name="interest" value="prev" onclick="toggleButton()">
-                        <label for="prev">prev</label>
+                        <label for="prev" class="font-weight-bold">Prev</label>
                     <iframe src="/finance" frameborder="1" id="frame" height="450px" width="100%"></iframe>
 
                   </div>
@@ -213,7 +243,7 @@
                 <div class="row" style="display: none; margin:50px 0;" id="frame_computer">
                   <div class="col-12">
                     <input class="radio-label" type="radio" id="prev" name="interest" value="prev" onclick="toggleButton()">
-                        <label for="prev">prev</label>
+                        <label for="prev" class="font-weight-bold">Prev</label>
                     <iframe src="/computer_app" frameborder="1" id="frame" height="450px" width="100%"></iframe>
 
                   </div>
@@ -221,7 +251,7 @@
                 <div class="row" style="display: none; margin:50px 0;" id="frame_pharma">
                   <div class="col-12">
                     <input class="radio-label" type="radio" id="prev" name="interest" value="prev" onclick="toggleButton()">
-                        <label for="prev">prev</label>
+                        <label for="prev" class="font-weight-bold">Prev</label>
                     <iframe src="/pharmacology" frameborder="1" id="frame" height="450px" width="100%"></iframe>
 
                   </div>
@@ -229,7 +259,7 @@
                 <div class="row" style="display: none; margin:50px 0;" id="frame_agri">
                   <div class="col-12">
                     <input class="radio-label" type="radio" id="prev" name="interest" value="prev" onclick="toggleButton()">
-                        <label for="prev">prev</label>
+                        <label for="prev" class="font-weight-bold">Prev</label>
                     <iframe src="/agriculture" frameborder="1" id="frame" height="450px" width="100%"></iframe>
 
                   </div>
@@ -240,8 +270,8 @@
                   aligned with your goals.</label>
                 <br>
 
-                <div class="mt-4-pt-2">
-                  <input class="btn btn-primary btn-lg" style="margin-top: 20px;" type="submit" value="Submit" />
+                <div class="mt-4-pt-2" style="text-align: center;">
+                  <input class="btn btn-primary btn-lg"  type="submit" value="Submit" />
                 </div>
               </form>
             </div>
@@ -269,127 +299,55 @@
 
       if (tech.checked) {
         frame_tech.style.display = 'grid';
-        frame_admin.style.display = 'none';
-        frame_finance.style.display = 'none';
-        frame_computer.style.display = 'none';
-        frame_pharma.style.display = 'none';
-        frame_agri.style.display = 'none';
-        interest.style.display = 'none';
-
+        frame_admin.style.display=frame_finance.style.display =frame_computer.style.display=frame_pharma.style.display = frame_agri.style.display =interest.style.display ='none';
       }
       
       else if (admin.checked) {
-          frame_tech.style.display = 'none';
           frame_admin.style.display = 'grid';
-          frame_finance.style.display = 'none';
-          frame_computer.style.display = 'none';
-          frame_pharma.style.display = 'none';
-          frame_agri.style.display = 'none';
-          interest.style.display = 'none';
+          frame_tech.style.display=frame_finance.style.display =frame_computer.style.display=frame_pharma.style.display = frame_agri.style.display =interest.style.display ='none';
         } 
       else if (finance.checked) {
-          frame_tech.style.display = 'none';
-          frame_admin.style.display = 'none';
           frame_finance.style.display = 'grid';
-          frame_computer.style.display = 'none';
-          frame_pharma.style.display = 'none';
-          frame_agri.style.display = 'none';
-          interest.style.display = 'none';
+          frame_admin.style.display=frame_tech.style.display =frame_computer.style.display=frame_pharma.style.display = frame_agri.style.display =interest.style.display ='none';
         } 
         else if (computer.checked) {
-          frame_tech.style.display = 'none';
-          frame_admin.style.display = 'none';
-          frame_finance.style.display = 'none';
           frame_computer.style.display = 'grid';
-          frame_pharma.style.display = 'none';
-          frame_agri.style.display = 'none';
-          interest.style.display = 'none';
-
+          frame_admin.style.display=frame_finance.style.display =frame_tech.style.display=frame_pharma.style.display = frame_agri.style.display =interest.style.display ='none';
         }
         else if (pharma.checked) {
-          frame_tech.style.display = 'none';
-          frame_admin.style.display = 'none';
-          frame_finance.style.display = 'none';
-          frame_computer.style.display = 'none';
           frame_pharma.style.display = 'grid';
-          frame_agri.style.display = 'none';
-          interest.style.display = 'none';
-
+          frame_admin.style.display=frame_finance.style.display =frame_computer.style.display=frame_tech.style.display = frame_agri.style.display =interest.style.display ='none';
         }
       else if(agri.checked) {
-        frame_tech.style.display = 'none';
-        frame_admin.style.display = 'none'; 
-        frame_finance.style.display = 'none';
-        frame_computer.style.display = 'none';
-        frame_pharma.style.display = 'none';
         frame_agri.style.display = 'grid';
-        interest.style.display = 'none';
+        frame_admin.style.display=frame_finance.style.display =frame_computer.style.display=frame_pharma.style.display = frame_tech.style.display =interest.style.display ='none';
       }
       else {
-        frame_tech.style.display = 'none';
-        frame_admin.style.display = 'none';
-        frame_finance.style.display = 'none';
-        frame_computer.style.display = 'none';
-        frame_pharma.style.display = 'none';
-        frame_agri.style.display = 'none';
         interest.style.display = 'grid';
+        frame_admin.style.display=frame_finance.style.display =frame_computer.style.display=frame_pharma.style.display = frame_agri.style.display =frame_tech.style.display ='none';
       }
     }
-    // document.getElementById("form").addEventListener("submit", function (event) {
-    //   var selectedCheckboxes = document.querySelectorAll('input[name="interest"]:checked');
-    //   if (selectedCheckboxes.length<= 3 && selectedCheckboxes.length >= 5) {
-    //     event.preventDefault(); 
-    //     document.getElementById("error-message").style.display = "block";
+    // function change()
+    // {
+    //   var stream = document.getElementById('12th_branch').value
+    //   var pcm = document.getElementById('interest')
+    //   var pcb = document.getElementById('interest1')
+    //   if(stream==='PCM')
+    //   {
+    //     pcm.style.display = 'grid';
+    //     pcb.style.display = 'none';
     //   }
-    //   else {
-    //     console.log("submitted")
-    //     document.getElementById("error-message").style.display = "none";
+    //   else if(stream ==='PCB'){
+    //     pcb.style.display = 'grid';
+    //     pcm.style.display ='none';
     //   }
-    // });
-    // const radioButtons = document.querySelectorAll('input[name="interest"]');
-    // radioButtons.forEach(radioButton => {
-    //   radioButton.addEventListener('click', function () {
-    //     var frame_tech = document.getElementById('frame_tech')
-    //     var frame_admin = document.getElementById('frame_admin')
-    //     var frame_finance = document.getElementById('frame_finance')
-    //     var frame_computer = document.getElementById('frame_computer')
-    //     var frame_pharma = document.getElementById('frame_pharma')
-    //     var frame_agri = document.getElementById('frame_agri')
-    //     var interest = document.getElementById('interest')
-    //     if (frame_tech.checked) {
-    //       frame_tech.style.display = 'flex';
-    //       frame_admin.style.display = 'none';
-    //       frame_finance.style.display = 'none';
-    //       frame_computer.style.display = 'none';
-    //       frame_pharma.style.display = 'none';
-    //       frame_agri.style.display = 'none';
-    //       interest.style.display = 'none';
-    //     }
-    //     
-    //     else {
-    //       frame_tech.style.display = 'none';
-    //       frame_admin.style.display = 'none';
-    //       frame_finance.style.display = 'none';
-    //       frame_computer.style.display = 'none';
-    //       frame_pharma.style.display = 'none';
-    //       frame_agri.style.display = 'flex';
-    //       interest.style.display = 'none';
-    //     }
-    //     // frame.style.display = "flex";
-    //   });
-    // });
-    // var toggleButton = document.getElementById("toggleButton");
-    // var div1 = document.getElementById("frame1");
-    // var div2 = document.getElementById("interest");
+    //   else
+    //   {
+    //     pcm.style.display = 'grid';
+    //     pcb.style.display = 'none';
+    //   }
 
-    // // Add event listener to the button
-    // toggleButton.addEventListener("click", function() {
-    //     // Toggle the 'hidden' class on the div elements
-    //     div1.classList.toggle("hidden");
-    //     div2.classList.toggle("hidden");
-    // });
-
-
+    // }
   </script>
 
 </body>
