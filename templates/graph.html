@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Placement Chart</title>
-    <!-- Add Chart.js library -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.min.js"></script>
-    <!-- Add CSS styles -->
     <style>
         body, html {
             margin: 0;
@@ -62,12 +60,10 @@
         </div>
     </div>
 
-    <!-- JavaScript to draw the chart -->
     <script>
         drawBranchChart();
 
         async function drawBranchChart() {
-            // setup 
             const datapoints = await getBranchData();
             const data = {
                 labels: datapoints.labels,
@@ -80,7 +76,7 @@
                 }]
             };
 
-            // config 
+            
             const config = {
                 type: 'bar',
                 data,

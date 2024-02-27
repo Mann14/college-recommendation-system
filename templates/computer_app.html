@@ -90,6 +90,9 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
 
   }
 }
+.hidden{
+  display: none;
+}
 </style>
 </head>
 <body>
@@ -116,10 +119,10 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
                   <li><input type="checkbox" name="interest" id="checkboxFourteen" value="Medley"><label for="checkboxFourteen">Medley</label></li>
                   <li><input type="checkbox" name="interest" id="checkboxFifteen" value="Firefly"><label for="checkboxFifteen">Firefly</label></li>
                   <li><input type="checkbox" name="interest" id="checkboxsixteen" value="Rainbow Dash1"><label for="checkboxsixteen">Rainbow Dash</label></li>
-                  <li><input type="checkbox" name="interest" id="checkboxseventeen" value="Cotton Candy1"><label for="checkboxseventeen">Cotton Candy</label></li>
-                  <li><input type="checkbox" name="interest" id="checkboxEightteen" value="Rarity1"><label for="checkboxEightteen">Rarity</label></li>
+                  <li><input type="checkbox" name="interest" id="checkboxseventeen" value="Cotton Candy1" checked><label for="checkboxseventeen">Cotton Candy</label></li>
+                  <li><input type="checkbox" name="interest" id="checkboxEightteen" value="Rarity1" checked><label for="checkboxEightteen">Rarity</label></li>
                   <li><input type="checkbox" id="checkboxnineteen" name="interest" value="Surprise1"><label for="checkboxnineteen">Surprise</label></li>
-                  <li><input type="checkbox" name="interest" id="checkboxtwenty" value="Twilight Sparkle1"><label for="checkboxtwenty">Twilight Sparkle</label></li>
+                  <li><input type="checkbox" name="interest" id="checkboxtwenty" value="Twilight Sparkle1" checked><label for="checkboxtwenty">Twilight Sparkle</label></li>
                   <li><input type="checkbox"  name="interest"id="checkboxtwentyone" value="Moondancer1"><label for="checkboxtwentyone">Moondancer</label></li>
                   <li><input type="checkbox" name="interest" id="checkboxtwentytwo" value="Fluttershy1"><label for="checkboxtwentytwo">Fluttershy</label></li>
                   <li><input type="checkbox" name="interest" id="checkboxtwentythree" value="Derpy Hooves"><label for="checkboxtwentythree">Derpy Hooves</label></li>
@@ -139,17 +142,27 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
               <div id="error-message" style="display: none; color: red;">Please select only five options.</div>
             </form>
     <script>
+    //    var toggleButton = document.getElementById("toggleButton");
+    //     var div1 = document.getElementById("div1");
+    //     var div2 = document.getElementById("div2");
+
+    //     // Add event listener to the button
+    //     toggleButton.addEventListener("click", function() {
+    //         // Toggle the 'hidden' class on the div elements
+    //         div1.classList.toggle("hidden");
+    //         div2.classList.toggle("hidden");
+    //     });
         document.getElementById("form").addEventListener("submit", function (event) {
         var selectedCheckboxes = document.querySelectorAll('input[name="interest"]:checked');
         console.log(selectedCheckboxes)
-        if (selectedCheckboxes.length>=3 && selectedCheckboxes.length <= 5) {
+        if (selectedCheckboxes.length< 3 && selectedCheckboxes.length >5) {
+          event.preventDefault(); 
+          document.getElementById("error-message").style.display = "block";
+        }
+        else {
           console.log("submitted")
           document.getElementById("error-message").style.display = "none";
         }
-        else {
-          event.preventDefault(); 
-          document.getElementById("error-message").style.display = "block";
-          }
       });
     </script>
 </body>
