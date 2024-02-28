@@ -6,6 +6,8 @@
 }
 iframe{
     border: none;
+    background-color: rgb(173, 221, 240);
+    
 }
 .py-5{
     padding-top: 1rem !important;
@@ -29,6 +31,7 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
+  text-align: center;
 }
 #higher_12{
     display: none;
@@ -70,6 +73,7 @@ input::-webkit-inner-spin-button {
 
 .mt-4-pt-2{
     margin: auto;
+    text-align: center;
 }
 @media (min-width: 1200px )
 {

@@ -9,6 +9,7 @@ body {
     align-items: center;
     justify-content: center;
     height: 100vh;
+    
     /* background: #FFEFBA; */
     /* fallback for old browsers */
     /* background: -webkit-linear-gradient(to right, #FFFFFF, #FFEFBA); */
@@ -19,7 +20,7 @@ body {
 }
 
 .container {
-    max-width: 640px;
+    max-width: 1000px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 13px;
 }

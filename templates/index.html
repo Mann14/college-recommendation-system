@@ -1,5 +1,5 @@
-{% extends 'base.html' %}
-{% block content %}
+<!-- {% extends 'base.html' %}
+{% block content %} -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,7 +20,7 @@
     <div class="container py-5 h-100">
       <div class="row justify-content-center align-items-center h-100">
         <div class="col-12 col-lg-9 col-xl-7">
-          <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+          <div class="card shadow-2-strong card-registration" style="border-radius: 15px; ">
             <div class="card-body p-4 p-md-5">
               <form id="form" action="/submit_form" method="post">
 
@@ -145,7 +145,8 @@
                     <div class="interest-container">
                         
                       <div class="grid-item">
-                        <input class="radio-label" type="radio" id="technology" name="interest" value="technology" onclick="toggleButton()">
+                        <input class="radio-label" type="radio" id="technology" name="interest" 
+                        value="technology" onclick="toggleButton()">
                         <label for="technology" >Technology</label>
                       </div>
                       <div class="grid-item">
@@ -166,13 +167,17 @@
                       </div>
                       <div></div>
                       <div class="grid-item">
-                        <input class="radio-label" type="radio" id="pharmacology" name="interest" value="pharmacology" onclick="toggleButton()">
+                        <input class="radio-label" type="radio" id="pharmacology" name="interest" 
+                        value="pharmacology" onclick="toggleButton()">
                         <label for="pharmacology" >Pharmacology</label>
                       </div>
                       <div class="grid-item">
-                        <input class="radio-label" type="radio" id="agriculture" name="interest" value="agriculture" onclick="toggleButton()">
+                        <input class="radio-label" type="radio" id="agriculture" name="interest" 
+                        value="agriculture" onclick="toggleButton()">
                         <label for="agriculture" >Agriculture</label>
                       </div>
+                      
+                      <!-- <iframe id="myIframe" width="600" height="400" src=""></iframe> -->
                     </div>
                   </div>
                 </div>
@@ -218,7 +223,7 @@
                     <div style="margin-bottom: 20px;">
 
                       <input class="radio-label" type="radio" id="prev" name="interest" value="prev" onclick="toggleButton()">
-                          <label for="prev" class="font-weight-bold">Prev</label>
+                          <label for="prev" class="font-weight-bold">Change Interest</label>
                     </div>
                     <iframe src="/technology" frameborder="1" id="frame" height="450px" width="100%"></iframe>
 
@@ -227,7 +232,7 @@
                 <div class="row" style="display: none; margin:50px 0;" id="frame_admin">
                   <div class="col-12">
                     <input class="radio-label" type="radio" id="prev" name="interest" value="prev" onclick="toggleButton()">
-                        <label for="prev" class="font-weight-bold">Prev</label>
+                        <label for="prev" class="font-weight-bold">Change Interest</label>
                     <iframe src="/administration" frameborder="1" id="frame" height="450px" width="100%"></iframe>
 
                   </div>
@@ -235,7 +240,7 @@
                 <div class="row" style="display: none; margin:50px 0;" id="frame_finance">
                   <div class="col-12">
                     <input class="radio-label" type="radio" id="prev" name="interest" value="prev" onclick="toggleButton()">
-                        <label for="prev" class="font-weight-bold">Prev</label>
+                        <label for="prev" class="font-weight-bold">Change Interest</label>
                     <iframe src="/finance" frameborder="1" id="frame" height="450px" width="100%"></iframe>
 
                   </div>
@@ -243,7 +248,7 @@
                 <div class="row" style="display: none; margin:50px 0;" id="frame_computer">
                   <div class="col-12">
                     <input class="radio-label" type="radio" id="prev" name="interest" value="prev" onclick="toggleButton()">
-                        <label for="prev" class="font-weight-bold">Prev</label>
+                        <label for="prev" class="font-weight-bold">Change Interest</label>
                     <iframe src="/computer_app" frameborder="1" id="frame" height="450px" width="100%"></iframe>
 
                   </div>
@@ -251,7 +256,7 @@
                 <div class="row" style="display: none; margin:50px 0;" id="frame_pharma">
                   <div class="col-12">
                     <input class="radio-label" type="radio" id="prev" name="interest" value="prev" onclick="toggleButton()">
-                        <label for="prev" class="font-weight-bold">Prev</label>
+                        <label for="prev" class="font-weight-bold">Change Interest</label>
                     <iframe src="/pharmacology" frameborder="1" id="frame" height="450px" width="100%"></iframe>
 
                   </div>
@@ -259,7 +264,7 @@
                 <div class="row" style="display: none; margin:50px 0;" id="frame_agri">
                   <div class="col-12">
                     <input class="radio-label" type="radio" id="prev" name="interest" value="prev" onclick="toggleButton()">
-                        <label for="prev" class="font-weight-bold">Prev</label>
+                        <label for="prev" class="font-weight-bold">Change Interest</label>
                     <iframe src="/agriculture" frameborder="1" id="frame" height="450px" width="100%"></iframe>
 
                   </div>
@@ -282,7 +287,7 @@
   </section>
   <script>
     function toggleButton() {
-      var prev = document.getElementById('prev')
+      var Change_Interest = document.getElementById('Change_Interest')
       var frame_tech = document.getElementById('frame_tech')
       var frame_admin = document.getElementById('frame_admin')
       var frame_finance = document.getElementById('frame_finance')
@@ -327,6 +332,44 @@
         frame_admin.style.display=frame_finance.style.display =frame_computer.style.display=frame_pharma.style.display = frame_agri.style.display =frame_tech.style.display ='none';
       }
     }
+
+
+
+    // Function to handle visibility of radio buttons based on 12th percentage
+function handleRadioVisibility(per_12) {
+    per_12 = parseFloat(per_12);
+
+    // Get all radio buttons
+    var radioButtons = document.querySelectorAll('input[type="radio"]');
+
+    if (per_12 > 60) {
+        // Display all radio buttons
+        radioButtons.forEach(function(radio) {
+            radio.style.display = "inline";
+        });
+    } else if (per_12 >= 50 && per_12 < 60) {
+        // Hide BCA
+        document.getElementById("BCA").style.display = "none";
+    } else if (per_12 >= 45 && per_12 < 50) {
+        // Hide BBA, BCA, Bsc, B.Com
+        document.getElementById("BBA").style.display = "none";
+        document.getElementById("BCA").style.display = "none";
+        document.getElementById("Bsc").style.display = "none";
+        document.getElementById("B.Com").style.display = "none";
+    } else {
+        // Hide all radio buttons and display message
+        radioButtons.forEach(function(radio) {
+            radio.style.display = "none";
+        });
+        document.getElementById("message").innerText = "Sorry, Not applicable";
+    }
+}
+
+// Add event listener to trigger visibility change on input change
+document.getElementById("per_12").addEventListener("input", function() {
+    var per_12 = this.value;
+    handleRadioVisibility(per_12);
+});
     // function change()
     // {
     //   var stream = document.getElementById('12th_branch').value
@@ -348,9 +391,12 @@
     //   }
 
     // }
+
+    
+
   </script>
 
 </body>
 
 </html>
-{% endblock %}
+<!-- {% endblock %} -->
