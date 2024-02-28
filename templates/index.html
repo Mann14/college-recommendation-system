@@ -13,6 +13,8 @@
   <script src="/static/cities.js"></script>
   <style>
   </style>
+  <style>
+  </style>
 </head>
 
 <body>
@@ -20,6 +22,7 @@
     <div class="container py-5 h-100">
       <div class="row justify-content-center align-items-center h-100">
         <div class="col-12 col-lg-9 col-xl-7">
+          <div class="card shadow-2-strong card-registration" style="border-radius: 15px; ">
           <div class="card shadow-2-strong card-registration" style="border-radius: 15px; ">
             <div class="card-body p-4 p-md-5">
               <form id="form" action="/submit_form" method="post">
@@ -55,9 +58,13 @@
                   </div>
                 </div>
                 <div class="row row1 row2">
+                <div class="row row1 row2">
                   <div class="col-md-6">
 
                     <div class="form-outline">
+                      <label class="form-label font-weight-bold" for="state">State</label>
+                      <select onchange="print_city('city', this.selectedIndex);" id="state" name="State"
+                        class="form-control form-control-lg" required></select>
                       <label class="form-label font-weight-bold" for="state">State</label>
                       <select onchange="print_city('city', this.selectedIndex);" id="state" name="State"
                         class="form-control form-control-lg" required></select>
@@ -70,13 +77,21 @@
                       <label class="form-label font-weight-bold" for="city">City</label>
                       <select id="city" class="form-control form-control-lg" name="City" required></select>
                       <script language="javascript">print_state("state");</script>
+                      <label class="form-label font-weight-bold" for="city">City</label>
+                      <select id="city" class="form-control form-control-lg" name="City" required></select>
+                      <script language="javascript">print_state("state");</script>
                     </div>
 
                   </div>
                   <div class="col-md-6 pb-2">
 
 
+
                     <div class="form-outline">
+                      <label class="form-label font-weight-bold" for="jee_rank">JEE Rank</label>
+                      <input type="number" id="jee_rank" class="form-control form-control-lg" name="jee_rank" />
+                      <label for="jee_rank" class="form-label label">Please enter rank in numbers</label>
+
                       <label class="form-label font-weight-bold" for="jee_rank">JEE Rank</label>
                       <input type="number" id="jee_rank" class="form-control form-control-lg" name="jee_rank" />
                       <label for="jee_rank" class="form-label label">Please enter rank in numbers</label>
@@ -85,6 +100,8 @@
 
                   </div>
                 </div>
+
+                <!-- <div class="row row1" id="diploma1">
 
                 <!-- <div class="row row1" id="diploma1">
                   <div class="col-md-6 mb-4">
@@ -113,11 +130,20 @@
 
                   </div>
                 </div> -->
+                </div> -->
 
                 <div class="row row1 row2">
 
                   <div class="col-md-6">
                     <div class="form-outline">
+                      <label class="form-label select-label font-weight-bold" for="12th_branch">12th Branch</label>
+                      <select class="form-control-lg form-control" id="12th_branch" name="branch_12" onclick="change()">
+                        <option value="" disabled selected>Select an option</option>
+                        <option value="PCM" >PCM</option>
+                        <option value="PCB">PCB</option>
+                        <option value="Commerce">Commerce</option>
+                        <option value="Arts">Arts</option>
+                      </select>
                       <label class="form-label select-label font-weight-bold" for="12th_branch">12th Branch</label>
                       <select class="form-control-lg form-control" id="12th_branch" name="branch_12" onclick="change()">
                         <option value="" disabled selected>Select an option</option>
@@ -133,6 +159,10 @@
                       <label class="form-label font-weight-bold" for="12th_marks">12th Percentage</label>
                       <input type="number" id="12th_marks" max="100" min="0" class="form-control form-control-lg"
                         name="per_12" />
+                  <div class="form-outline">
+                      <label class="form-label font-weight-bold" for="12th_marks">12th Percentage</label>
+                      <input type="number" id="12th_marks" max="100" min="0" class="form-control form-control-lg"
+                        name="per_12" />
                     </div>
 
                   </div>
@@ -140,39 +170,45 @@
                 </div>
 
                 <div class="row" id="interest">
+                <div class="row" id="interest">
                   <div class="col-12">
                     <label for="interest" class="interest font-weight-bold">Interests</label required><br>
                     <div class="interest-container">
                         
+                    <label for="interest" class="interest font-weight-bold">Interests</label required><br>
+                    <div class="interest-container">
+                        
                       <div class="grid-item">
-                        <input class="radio-label" type="radio" id="technology" name="interest" 
+                        <input class="radio-label" type="radio" id="technology" name="interests" 
                         value="technology" onclick="toggleButton()">
                         <label for="technology" >Technology</label>
                       </div>
                       <div class="grid-item">
-                        <input class="radio-label" type="radio" id="administration" name="interest"
+                        <input class="radio-label" type="radio" id="administration" name="interests"
                           value="administration" onclick="toggleButton()">
                         <label for="administration">Administration </label>
                       </div>
                       <div></div>
+                      <div></div>
                       <div class="grid-item">
-                        <input class="radio-label" type="radio" id="finance-accounting" name="interest"
+                        <input class="radio-label" type="radio" id="finance-accounting" name="interests"
                           value="finance-accounting" onclick="toggleButton()">
                         <label for="finance-accounting" >Finance & Accounting</label><br>
                       </div>
                       <div class="grid-item">
-                        <input class="radio-label" type="radio" id="computer-application" name="interest"
+                        <input class="radio-label" type="radio" id="computer-application" name="interests"
                           value="computer-application" onclick="toggleButton()">
                         <label for="computer-application" >Computer Application</label>
                       </div>
                       <div></div>
+                      <div></div>
                       <div class="grid-item">
-                        <input class="radio-label" type="radio" id="pharmacology" name="interest" 
+                        <input class="radio-label" type="radio" id="pharmacology" name="interests" 
                         value="pharmacology" onclick="toggleButton()">
                         <label for="pharmacology" >Pharmacology</label>
                       </div>
                       <div class="grid-item">
-                        <input class="radio-label" type="radio" id="agriculture" name="interest" 
+                        <input class="radio-label" type="radio" id="agriculture" name="interests" 
                         value="agriculture" onclick="toggleButton()">
                         <label for="agriculture" >Agriculture</label>
                       </div>
@@ -181,38 +217,40 @@
                     </div>
                   </div>
                 </div>
-                <!-- <div class="row" id="interest1" style="display: none;">
+                <!-- <div class="row" id="interests1" style="display: none;">
                   <div class="col-12">
-                    <label for="interest" class="interest font-weight-bold">Interests</label required><br>
-                    <div class="interest-container">
+                    <label for="interests" class="interests font-weight-bold">interestss</label required><br>
+                    <div class="interests-container">
                         
                       <div class="grid-item">
-                        <input class="radio-label" type="radio" id="technology" name="interest" value="technology" onclick="toggleButton()">
+                        <input class="radio-label" type="radio" id="technology" name="interests" value="technology" onclick="toggleButton()">
                         <label for="technology" >Medical</label>
                       </div>
                       <div class="grid-item">
-                        <input class="radio-label" type="radio" id="administration" name="interest"
+                        <input class="radio-label" type="radio" id="administration" name="interests"
                           value="administration" onclick="toggleButton()">
                         <label for="administration">Pharmacy</label>
                       </div>
                       <div></div>
+                      <div></div>
                       <div class="grid-item">
-                        <input class="radio-label" type="radio" id="finance-accounting" name="interest"
+                        <input class="radio-label" type="radio" id="finance-accounting" name="interests"
                           value="finance-accounting" onclick="toggleButton()">
                         <label for="finance-accounting" >Dental</label><br>
                       </div>
                       <div class="grid-item">
-                        <input class="radio-label" type="radio" id="computer-application" name="interest"
+                        <input class="radio-label" type="radio" id="computer-application" name="interests"
                           value="computer-application" onclick="toggleButton()">
                         <label for="computer-application" >Computer Application</label>
                       </div>
                       <div></div>
+                      <div></div>
                       <div class="grid-item">
-                        <input class="radio-label" type="radio" id="pharmacology" name="interest" value="pharmacology" onclick="toggleButton()">
+                        <input class="radio-label" type="radio" id="pharmacology" name="interests" value="pharmacology" onclick="toggleButton()">
                         <label for="pharmacology" >Pharmacology</label>
                       </div>
                       <div class="grid-item">
-                        <input class="radio-label" type="radio" id="agriculture" name="interest" value="agriculture" onclick="toggleButton()">
+                        <input class="radio-label" type="radio" id="agriculture" name="interests" value="agriculture" onclick="toggleButton()">
                         <label for="agriculture" >Agriculture</label>
                       </div>
                     </div>
@@ -222,8 +260,8 @@
                   <div class="col-12">
                     <div style="margin-bottom: 20px;">
 
-                      <input class="radio-label" type="radio" id="prev" name="interest" value="prev" onclick="toggleButton()">
-                          <label for="prev" class="font-weight-bold">Change Interest</label>
+                      <input class="radio-label" type="radio" id="prev" name="interests" value="prev" onclick="toggleButton()">
+                          <label for="prev" class="font-weight-bold">Change interests</label>
                     </div>
                     <iframe src="/technology" frameborder="1" id="frame" height="450px" width="100%"></iframe>
 
@@ -231,40 +269,40 @@
                 </div>
                 <div class="row" style="display: none; margin:50px 0;" id="frame_admin">
                   <div class="col-12">
-                    <input class="radio-label" type="radio" id="prev" name="interest" value="prev" onclick="toggleButton()">
-                        <label for="prev" class="font-weight-bold">Change Interest</label>
+                    <input class="radio-label" type="radio" id="prev" name="interests" value="prev" onclick="toggleButton()">
+                        <label for="prev" class="font-weight-bold">Change interests</label>
                     <iframe src="/administration" frameborder="1" id="frame" height="450px" width="100%"></iframe>
 
                   </div>
                 </div>
                 <div class="row" style="display: none; margin:50px 0;" id="frame_finance">
                   <div class="col-12">
-                    <input class="radio-label" type="radio" id="prev" name="interest" value="prev" onclick="toggleButton()">
-                        <label for="prev" class="font-weight-bold">Change Interest</label>
+                    <input class="radio-label" type="radio" id="prev" name="interests" value="prev" onclick="toggleButton()">
+                        <label for="prev" class="font-weight-bold">Change interests</label>
                     <iframe src="/finance" frameborder="1" id="frame" height="450px" width="100%"></iframe>
 
                   </div>
                 </div>
                 <div class="row" style="display: none; margin:50px 0;" id="frame_computer">
                   <div class="col-12">
-                    <input class="radio-label" type="radio" id="prev" name="interest" value="prev" onclick="toggleButton()">
-                        <label for="prev" class="font-weight-bold">Change Interest</label>
+                    <input class="radio-label" type="radio" id="prev" name="interests" value="prev" onclick="toggleButton()">
+                        <label for="prev" class="font-weight-bold">Change interests</label>
                     <iframe src="/computer_app" frameborder="1" id="frame" height="450px" width="100%"></iframe>
 
                   </div>
                 </div>
                 <div class="row" style="display: none; margin:50px 0;" id="frame_pharma">
                   <div class="col-12">
-                    <input class="radio-label" type="radio" id="prev" name="interest" value="prev" onclick="toggleButton()">
-                        <label for="prev" class="font-weight-bold">Change Interest</label>
+                    <input class="radio-label" type="radio" id="prev" name="interests" value="prev" onclick="toggleButton()">
+                        <label for="prev" class="font-weight-bold">Change interests</label>
                     <iframe src="/pharmacology" frameborder="1" id="frame" height="450px" width="100%"></iframe>
 
                   </div>
                 </div>
                 <div class="row" style="display: none; margin:50px 0;" id="frame_agri">
                   <div class="col-12">
-                    <input class="radio-label" type="radio" id="prev" name="interest" value="prev" onclick="toggleButton()">
-                        <label for="prev" class="font-weight-bold">Change Interest</label>
+                    <input class="radio-label" type="radio" id="prev" name="interests" value="prev" onclick="toggleButton()">
+                        <label for="prev" class="font-weight-bold">Change interests</label>
                     <iframe src="/agriculture" frameborder="1" id="frame" height="450px" width="100%"></iframe>
 
                   </div>
@@ -274,10 +312,16 @@
                 <label class="label">Share your preferences to tailor recommendations, finding the best education fit
                   aligned with your goals.</label>
                 <br>
+                <br>
+                <label class="label">Share your preferences to tailor recommendations, finding the best education fit
+                  aligned with your goals.</label>
+                <br>
 
                 <div class="mt-4-pt-2" style="text-align: center;">
                   <input class="btn btn-primary btn-lg"  type="submit" value="Submit" />
                 </div>
+                <!-- Add a hidden input field to store the selected checkboxes -->
+            <input type="hidden" id="selected-interests" name="selected_interests" value="">
               </form>
             </div>
           </div>
@@ -285,6 +329,30 @@
       </div>
     </div>
   </section>
+  <script>
+    document.getElementById("form").addEventListener("submit", function (event) {
+        event.preventDefault(); // Prevent default form submission
+
+        // Access the iframe element
+        var iframe = document.getElementById("frame");
+        // Access the document inside the iframe
+        var iframeDocument = iframe.contentWindow.document;
+        // Access the selected checkboxes inside the iframe
+        var selectedCheckboxes = iframeDocument.querySelectorAll('input[name="interest"]:checked');
+        var selectedInterests = [];
+
+        // Extract values of selected checkboxes
+        selectedCheckboxes.forEach(function (checkbox) {
+            selectedInterests.push(checkbox.value);
+        });
+
+        // Set the value of the hidden input field to the selected interests
+        document.getElementById("selected-interests").value = selectedInterests.join(", ");
+
+        // Submit the form programmatically
+        document.getElementById("form").submit();
+    });
+</script>
   <script>
     function toggleButton() {
       var Change_Interest = document.getElementById('Change_Interest')
@@ -300,7 +368,7 @@
       var computer = document.getElementById('computer-application')
       var pharma = document.getElementById('pharmacology')
       var agri = document.getElementById('agriculture')
-      var interest = document.getElementById('interest')
+      var interests = document.getElementById('interests')
 
       if (tech.checked) {
         frame_tech.style.display = 'grid';
@@ -333,29 +401,37 @@
       }
     }
 
-
-
     // Function to handle visibility of radio buttons based on 12th percentage
-function handleRadioVisibility(per_12) {
-    per_12 = parseFloat(per_12);
+    function handleRadioVisibility() {
+    var per_12 = parseFloat(document.getElementById("12th_marks").value);
 
     // Get all radio buttons
-    var radioButtons = document.querySelectorAll('input[type="radio"]');
+    var radioButtons = document.querySelectorAll('input[name="interests"]');
 
-    if (per_12 > 60) {
+    if (per_12 >= 60) {
         // Display all radio buttons
         radioButtons.forEach(function(radio) {
             radio.style.display = "inline";
         });
     } else if (per_12 >= 50 && per_12 < 60) {
-        // Hide BCA
-        document.getElementById("BCA").style.display = "none";
+        // Hide BCA and make other radio buttons inline
+        document.getElementById("computer-application").style.display = "none";
+        radioButtons.forEach(function(radio) {
+            if (radio.id !== "computer-application") {
+                radio.style.display = "inline";
+            }
+        });
     } else if (per_12 >= 45 && per_12 < 50) {
-        // Hide BBA, BCA, Bsc, B.Com
-        document.getElementById("BBA").style.display = "none";
-        document.getElementById("BCA").style.display = "none";
-        document.getElementById("Bsc").style.display = "none";
-        document.getElementById("B.Com").style.display = "none";
+        // Hide BBA, BCA, Bsc, B.Com and make other radio buttons inline
+        document.getElementById("technology").style.display = "none";
+        document.getElementById("administration").style.display = "none";
+        document.getElementById("finance-accounting").style.display = "none";
+        document.getElementById("computer-application").style.display = "none";
+        radioButtons.forEach(function(radio) {
+            if (radio.id !== "technology" && radio.id !== "administration" && radio.id !== "finance-accounting" && radio.id !== "computer-application") {
+                radio.style.display = "inline";
+            }
+        });
     } else {
         // Hide all radio buttons and display message
         radioButtons.forEach(function(radio) {
@@ -366,15 +442,20 @@ function handleRadioVisibility(per_12) {
 }
 
 // Add event listener to trigger visibility change on input change
-document.getElementById("per_12").addEventListener("input", function() {
-    var per_12 = this.value;
-    handleRadioVisibility(per_12);
+document.getElementById("12th_marks").addEventListener("input", handleRadioVisibility);
+
+// Add event listeners to radio buttons
+document.querySelectorAll('input[name="interest"]').forEach(function(radio) {
+    radio.addEventListener("click", handleRadioVisibility);
 });
+
+// Initial visibility check
+handleRadioVisibility();
     // function change()
     // {
     //   var stream = document.getElementById('12th_branch').value
-    //   var pcm = document.getElementById('interest')
-    //   var pcb = document.getElementById('interest1')
+    //   var pcm = document.getElementById('interests')
+    //   var pcb = document.getElementById('interests1')
     //   if(stream==='PCM')
     //   {
     //     pcm.style.display = 'grid';
@@ -392,9 +473,8 @@ document.getElementById("per_12").addEventListener("input", function() {
 
     // }
 
-    
-
   </script>
+
 
 </body>
 

@@ -167,7 +167,6 @@
         }
       }
       .disclaimer {
-            background-color: #a4e4f7;
             border: 1px solid #ddd;
             border-radius: 5px;
             padding: 20px;
@@ -211,11 +210,22 @@
         <h2>DISCLAIMER:</h2>
         <p>Course recommendations provided are based on available information; individual success is not guaranteed, so explore further and choose wisely.</p>
     </div>
-    <div class="graph-iframe">
+    <!--<div class="graph-iframe">
       <iframe src="graph" height="500" width="1000" frameborder="0"></iframe>
     </div>
-    {% endblock %}
+    -->
+    
+    <p>Click <a href="{{ url_for('roadmap', branch = b1) }}">here</a> to view the roadmap for this field. Else:</p> 
+    <div class="further-recommendations">
+        <h2>Further Recommendations</h2>
+        <p>Explore these additional options:</p>
+        <ul>
+            <li>{{ b2 }}</li>
+            <li>{{ b3 }}</li>
+        </ul>
+    </div>
 
+    {% endblock %}
     <footer class="footer">
         <div class="footer-sec">
             <div class="f-logo">
