@@ -49,8 +49,33 @@ def submit_form_alternate():
 #    return render_template('graph.html') 
 
 @app.route('/')
+
 def index():
     return redirect(url_for('show_form'))
+
+@app.route('/technology')
+def tech():
+    return render_template('technology.html') 
+
+@app.route('/administration')
+def admin():
+    return render_template('administration.html') 
+
+@app.route('/finance')
+def finance():
+    return render_template('finance.html') 
+
+@app.route('/computer_app')
+def comp():
+    return render_template('computer_app.html') 
+
+@app.route('/pharmacology')
+def pharma():
+    return render_template('pharmacology.html') 
+
+@app.route('/agriculture')
+def agri():
+    return render_template('agriculture.html') 
 
 @app.route('/form', methods=['GET', 'POST'])
 def show_form():
@@ -71,6 +96,66 @@ def roadmap():
         'roadmap': 'Here is the roadmap for NLP...'  # Example roadmap content
     }
     return render_template(f'roadmaps/{branch}roadmap.html', roadmap_data=roadmap_data)
+# def submit():
+#     if request.method == 'POST':
+#         # Extract form data
+#         full_name = request.form['Full_name']
+#         email = request.form['Email']
+#         family_income = int(request.form['Family_income'])
+#         # higher_edu = request.form['higher_edu']
+#         branch = request.form.get('branch_12') 
+#         per_12 = request.form.get('per_12', 0)
+#         try:
+#             per_12_int = int(per_12)
+#         except:
+#             per_12_int = 0
+#         # diploma_branch = request.form.get('diploma_branch') 
+#         # diploma_per = request.form.get('diploma_per',0)
+#         # try:
+#         #     diploma_per_int = int(diploma_per)
+#         # except:
+#         #     diploma_per_int  = 0
+#         jee_rank = request.form.get('jee_rank',0)
+#         try:
+#             jee_rank_int = int(jee_rank)
+#         except:
+#             jee_rank_int = 0
+#         state = request.form['State']
+#         city = request.form['City']
+#         interests = request.form.getlist('interest')
+
+#         # Create a document to insert into MongoDB
+#         student_data = {
+#             'full_name': full_name,
+#             'email': email,
+#             'family_income': family_income,
+#             # 'higher_edu': higher_edu,
+#             'branch': branch,
+#             'per_12': per_12_int,
+#             # 'diploma_branch': diploma_branch,
+#             # 'diploma_per': diploma_per_int,
+#             'jee_rank': jee_rank_int,
+#             'state': state,
+#             'city': city,
+#             'interests': interests
+#         }
+
+#         # Insert the document into MongoDB
+#         collection.insert_one(student_data)
+
+#         print('Form data submitted successfully!')
+
+@app.route('/submit_form', methods=['POST'])
+def submit_form():
+    # Process form data
+    # Redirect to loading.html
+    # submit()
+    branch = get_recommendation()
+    # Render HTML template based on branch recommendation
+    template_path = f'recommends/{branch.lower()}.html'
+    return render_template(template_path)
+
+
 @app.route('/output')
 def output():
     return render_template('recommends/cs.html')
