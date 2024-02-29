@@ -98,7 +98,7 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
       <p class="font-weight-bold">Please Select min 3 and max 5 options !</p>
     </div>
     <div>
-      <form id="form2" method="post" action="/submit_form_alternate">
+      <form action="/" method="get" id="form" >
                 <ul class="ks-cboxtags" >
                   <li><input type="checkbox" name="interest" id="checkboxOne" value="Problem-solving"><label for="checkboxOne"> Problem-solving</label></li>
                   <li><input type="checkbox" name="interest" id="checkboxTwo" value="Web & App development"><label for="checkboxTwo"> Web & App development</label></li>
@@ -150,12 +150,27 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
                   <li><input type="checkbox" name="interest" id="checkboxFourteen" value=""><label for="checkboxFourteen"> Environmental impact assessment</label></li>
                   <li><input type="checkbox" name="interest" id="checkboxFifteen" value=""><label for="checkboxFifteen"> Project management</label></li>
                   
-                </ul>                
+                </ul>  
+                <div class="mt-4-pt-2">
+                  <input class="btn btn-primary btn-lg" style="margin-top: 20px; text-align: center;" type="submit" value="Submit" />
+              </div>
               </div>
 
               <div id="error-message" style="display: none; color: red;">Please Select only five options.</div>
             </form>
-      
-          
+    <script>
+        document.getElementById("form").addEventListener("submit", function (event) {
+        var selectedCheckboxes = document.querySelectorAll('input[name="interest"]:checked');
+        console.log(selectedCheckboxes)
+        if (selectedCheckboxes.length>=3 && selectedCheckboxes.length <= 5) {
+          console.log("submitted")
+          document.getElementById("error-message").style.display = "none";
+        }
+        else {
+          event.preventDefault(); 
+          document.getElementById("error-message").style.display = "block";
+          }
+      });
+    </script>
 </body>
 </html>
