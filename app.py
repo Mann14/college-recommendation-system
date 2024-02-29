@@ -26,15 +26,15 @@ def submit_form():
     course = request.form.get('interests')
     print(binterests)
     selected_interests = binterests if binterests else ""
-    print(selected_interests, rank, income)
+    print(selected_interests, rank, course)
     b1, b2, b3 = get_recommendation(selected_interests, rank, course)
     print(b1, b2, b3)
     b1 = b1.lower()
 
-    template_path = f"recommends/{b1.lower()}.html"
+    #template_path = f"recommends/{b1.lower()}.html"
 
     # Render HTML template based on branch recommendation
-    return render_template('main.html', b1 = b1.upper(), b2 = b2.upper(), b3 = b3.upper())
+    return render_template('main.html', b1 = b1.upper(), b2 = b2.upper(), b3 = b3.upper(), interest =selected_interests, crs = course)
 
 # Call the function from model.py to predict top unique branches
 @app.route('/submit_form_alternate', methods=['POST'])

@@ -45,7 +45,7 @@ def predict_top_unique_branches(user_interest, user_rank=None, course=None):
     # Train the model based on filtered data
     tfidf_vectorizer = TfidfVectorizer()
     X_tfidf = tfidf_vectorizer.fit_transform(filtered_data['Interest'])
-    model = RandomForestClassifier(n_estimators=100, random_state=42)
+    model = RandomForestClassifier(n_estimators=100, random_state=22)
     model.fit(X_tfidf, filtered_data["Branch"])
 
     if user_rank is None:
@@ -89,6 +89,7 @@ def predict_top_unique_branches(user_interest, user_rank=None, course=None):
         top_unique_branches = [branch for branch in top_unique_branches if branch != 'CSE'] + ['CSE']
 
     return top_unique_branches
+print()
 # Function to save the trained model
 def save_model(model, filename):
     try:
