@@ -121,10 +121,6 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
         if (selectedCheckboxes.length>=3 && selectedCheckboxes.length <= 5) {
           console.log("submitted")
           document.getElementById("error-message").style.display = "none";
-          // Clear the page
-          document.body.innerHTML = "";
-          // Show a prompt of selected interests
-          alert("Selected interests: " + selectedInterests.join(", "));
         }
         else {
           event.preventDefault(); 

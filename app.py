@@ -53,30 +53,6 @@ def submit_form_alternate():
 def index():
     return redirect(url_for('show_form'))
 
-@app.route('/technology')
-def tech():
-    return render_template('technology.html') 
-
-@app.route('/administration')
-def admin():
-    return render_template('administration.html') 
-
-@app.route('/finance')
-def finance():
-    return render_template('finance.html') 
-
-@app.route('/computer_app')
-def comp():
-    return render_template('computer_app.html') 
-
-@app.route('/pharmacology')
-def pharma():
-    return render_template('pharmacology.html') 
-
-@app.route('/agriculture')
-def agri():
-    return render_template('agriculture.html') 
-
 @app.route('/form', methods=['GET', 'POST'])
 def show_form():
     if request.method == 'POST':
