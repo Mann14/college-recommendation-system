@@ -49,122 +49,111 @@
           border: none;
           background-color: transparent;
       }
-  
-      .navbar {
-          /* height: 5rem; */
-          width: 100%;
-          display: flex;
-          justify-content: space-between; /* Adjust alignment */
-          align-items: center;
-          background-color: rgb(10, 132, 213);
-          color: rgb(5, 5, 5);
-          font-weight: 500;
-          overflow-x: hidden;
-      }
-  
-      .logo {
-          /* Remove position:absolute */
-          margin-left: 10px; /* Adjust margin */
-          /* height: 3 rem; */
-          width: 200px;
-      }
-  
-      .navbar img {
-          /* height: 3rem; */
-          left: 0;
-          top: 0;
-          
-        
-      }
+      body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
 
-  
-      .logo img {
-          height: 4rem;
-          width: 150px ;
-      }
-  
-      .footer {
-          background-color: rgb(0, 0, 0);
-          color: rgb(255, 255, 255);
-          bottom: 0;
-          width: 100%;
-          padding: 5px 0;
-          z-index: 1000;
-      }
-      .graph-iframe {
-          width: 100%; /* Cover 100% width of the container */
-          height: calc(100vh - 15rem); /* Adjust height to fill remaining viewport */
-          margin-bottom: 0;
-          padding: 5px; /* Add padding to the iframe content */
-          box-sizing: border-box; /* Include padding and border in the total width and height */
-        
-      }
-      
+.navbar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(10, 132, 213);
+    color: rgb(255, 255, 255);
+    font-weight: 500;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    padding: 10px 20px;
+}
 
-  
-      .footer-sec {
-          width: 100%;
-          display: flex;
-          justify-content: space-between;
-          margin-top: 10px;
-          align-items: center;
-      }
-  
-      .f-logo img {
-          height: 3rem;
-      }
-  
-      .links {
-          display: flex;
-      }
-  
-      .socialmedia img {
-          filter: invert(1);
-          height: 25px;
-          width: 25px;
-      }
-  
-      .socialmedia {
-          border-radius: 25px;
-          height: 45px;
-          width: 45px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          margin-right: 10px;
-      }
-  
-      .facebook {
-          background-color: #3B5998;
-      }
-  
-      .youtube {
-          background-color: #CD201F;
-      }
-  
-      .instagram {
-          background-color: #262626;
-      }
-  
-      .copyright {
-          margin-top: 20px;
-          color: #7A7A7A;
-          text-align: center;
-      }
-      .heading p{
-        font-size: 30px;
-      }
-      .heading{
-        margin: auto;
-      }
-      @media screen and (max-width:600px)
-      {
-        .heading p{
-            font-size: 20px;
-        }
-      }
+.logo {
+    margin-left: 10px;
+}
+
+.logo img {
+    height: auto;
+    width: 150px;
+    max-width: 100%; /* Ensure image does not exceed container width */
+}
+.heading {
+    margin: auto; /* Center the heading horizontally */
+}
+.heading p {
+    font-size: 24px;
+    margin: 0;
+    margin-left: 20px; /* Add left margin */
+}
+
+.footer {
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    width: 100%;
+    padding: 20px 0;
+    text-align: center;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+.footer-sec {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.f-logo img {
+    height: auto;
+    width: 150px;
+    max-width: 100%; /* Ensure image does not exceed container width */
+}
+
+.links {
+    display: flex;
+    margin-right: 20px; /* Add right margin */
+}
+
+.socialmedia img {
+    filter: invert(1);
+    height: 25px;
+    width: 25px;
+}
+
+.socialmedia {
+    border-radius: 50%;
+    height: 45px;
+    width: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.facebook {
+    background-color: #3B5998;
+}
+
+.youtube {
+    background-color: #CD201F;
+}
+
+.instagram {
+    background-color: #262626;
+}
+
+@media screen and (max-width: 600px) {
+    .heading p {
+        font-size: 20px;
+    }
+    .navbar {
+        padding: 10px; /* Adjust padding */
+    }
+    .footer-sec {
+        flex-direction: column;
+    }
+}
+ 
       .disclaimer {
-            background-color: #a4e4f7;
             border: 1px solid #ddd;
             border-radius: 5px;
             padding: 20px;
@@ -208,11 +197,22 @@
         <h2>DISCLAIMER:</h2>
         <p>Course recommendations provided are based on available information; individual success is not guaranteed, so explore further and choose wisely.</p>
     </div>
-    <div class="graph-iframe">
+    <!--<div class="graph-iframe">
       <iframe src="graph" height="500" width="1000" frameborder="0"></iframe>
     </div>
-    {% endblock %}
+    -->
+    
+    <p>Click <a href="{{ url_for('roadmap', branch = b1) }}">here</a> to view the roadmap for this field. Else:</p> 
+    <div class="further-recommendations">
+        <h2>Further Recommendations</h2>
+        <p>Explore these additional options:</p>
+        <ul>
+            <li>{{ b2 }}</li>
+            <li>{{ b3 }}</li>
+        </ul>
+    </div>
 
+    {% endblock %}
     <footer class="footer">
         <div class="footer-sec">
             <div class="f-logo">
