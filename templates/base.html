@@ -205,18 +205,18 @@
     </nav>
 
     {% block content %}
-    <div class = "disclaimer">
+    <!-- <div class = "disclaimer">
         <p>Choosing a branch is a personal decision. Explore your interests, seek career opportunities, and engage with professionals in your chosen field. Assess if the role aligns with your passion and skills. The world of technology holds endless possibilities—discover where your interests meet the opportunities available.</p>
         <h2>DISCLAIMER:</h2>
         <p>Course recommendations provided are based on available information; individual success is not guaranteed, so explore further and choose wisely.</p>
-    </div>
+    </div> -->
     <!--<div class="graph-iframe">
       <iframe src="graph" height="500" width="1000" frameborder="0"></iframe>
     </div>
     -->
-    
-    <p>Click <a href="{{ url_for('roadmap', branch = b1) }}">here</a> to view the roadmap for this field. Else:</p> 
-    <div class="further-recommendations">
+    {% endblock %}
+    <p style="padding: 20px;">Click <a href="{{ url_for('roadmap', branch = b1) }}">here</a> to view the roadmap for this field. Else:</p> 
+    <div class="further-recommendations" style="padding: 20px;">
         <h2>Further Recommendations</h2>
         <p>Explore these additional options:</p>
         <ul>
@@ -225,7 +225,7 @@
         </ul>
     </div>
 
-    {% endblock %}
+
     <footer class="footer">
         <div class="footer-sec">
             <div class="f-logo">

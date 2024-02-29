@@ -145,15 +145,6 @@ def roadmap():
 
 #         print('Form data submitted successfully!')
 
-@app.route('/submit_form', methods=['POST'])
-def submit_form():
-    # Process form data
-    # Redirect to loading.html
-    # submit()
-    branch = get_recommendation()
-    # Render HTML template based on branch recommendation
-    template_path = f'recommends/{branch.lower()}.html'
-    return render_template(template_path)
 
 
 @app.route('/output')

@@ -13,8 +13,6 @@
   <script src="/static/cities.js"></script>
   <style>
   </style>
-  <style>
-  </style>
 </head>
 
 <body>
@@ -22,7 +20,6 @@
     <div class="container py-5 h-100">
       <div class="row justify-content-center align-items-center h-100">
         <div class="col-12 col-lg-9 col-xl-7">
-          <div class="card shadow-2-strong card-registration" style="border-radius: 15px; ">
           <div class="card shadow-2-strong card-registration" style="border-radius: 15px; ">
             <div class="card-body p-4 p-md-5">
               <form id="form" action="/submit_form" method="post">
@@ -58,13 +55,9 @@
                   </div>
                 </div>
                 <div class="row row1 row2">
-                <div class="row row1 row2">
                   <div class="col-md-6">
 
                     <div class="form-outline">
-                      <label class="form-label font-weight-bold" for="state">State</label>
-                      <select onchange="print_city('city', this.selectedIndex);" id="state" name="State"
-                        class="form-control form-control-lg" required></select>
                       <label class="form-label font-weight-bold" for="state">State</label>
                       <select onchange="print_city('city', this.selectedIndex);" id="state" name="State"
                         class="form-control form-control-lg" required></select>
@@ -74,9 +67,6 @@
                   <div class="col-md-6">
 
                     <div class="form-outline">
-                      <label class="form-label font-weight-bold" for="city">City</label>
-                      <select id="city" class="form-control form-control-lg" name="City" required></select>
-                      <script language="javascript">print_state("state");</script>
                       <label class="form-label font-weight-bold" for="city">City</label>
                       <select id="city" class="form-control form-control-lg" name="City" required></select>
                       <script language="javascript">print_state("state");</script>
@@ -86,12 +76,7 @@
                   <div class="col-md-6 pb-2">
 
 
-
                     <div class="form-outline">
-                      <label class="form-label font-weight-bold" for="jee_rank">JEE Rank</label>
-                      <input type="number" id="jee_rank" class="form-control form-control-lg" name="jee_rank" />
-                      <label for="jee_rank" class="form-label label">Please enter rank in numbers</label>
-
                       <label class="form-label font-weight-bold" for="jee_rank">JEE Rank</label>
                       <input type="number" id="jee_rank" class="form-control form-control-lg" name="jee_rank" />
                       <label for="jee_rank" class="form-label label">Please enter rank in numbers</label>
@@ -100,8 +85,6 @@
 
                   </div>
                 </div>
-
-                <!-- <div class="row row1" id="diploma1">
 
                 <!-- <div class="row row1" id="diploma1">
                   <div class="col-md-6 mb-4">
@@ -130,20 +113,11 @@
 
                   </div>
                 </div> -->
-                </div> -->
 
                 <div class="row row1 row2">
 
                   <div class="col-md-6">
                     <div class="form-outline">
-                      <label class="form-label select-label font-weight-bold" for="12th_branch">12th Branch</label>
-                      <select class="form-control-lg form-control" id="12th_branch" name="branch_12" onclick="change()">
-                        <option value="" disabled selected>Select an option</option>
-                        <option value="PCM" >PCM</option>
-                        <option value="PCB">PCB</option>
-                        <option value="Commerce">Commerce</option>
-                        <option value="Arts">Arts</option>
-                      </select>
                       <label class="form-label select-label font-weight-bold" for="12th_branch">12th Branch</label>
                       <select class="form-control-lg form-control" id="12th_branch" name="branch_12" onclick="change()">
                         <option value="" disabled selected>Select an option</option>
@@ -159,10 +133,6 @@
                       <label class="form-label font-weight-bold" for="12th_marks">12th Percentage</label>
                       <input type="number" id="12th_marks" max="100" min="0" class="form-control form-control-lg"
                         name="per_12" />
-                  <div class="form-outline">
-                      <label class="form-label font-weight-bold" for="12th_marks">12th Percentage</label>
-                      <input type="number" id="12th_marks" max="100" min="0" class="form-control form-control-lg"
-                        name="per_12" />
                     </div>
 
                   </div>
@@ -170,11 +140,7 @@
                 </div>
 
                 <div class="row" id="interest">
-                <div class="row" id="interest">
                   <div class="col-12">
-                    <label for="interest" class="interest font-weight-bold">Interests</label required><br>
-                    <div class="interest-container">
-                        
                     <label for="interest" class="interest font-weight-bold">Interests</label required><br>
                     <div class="interest-container">
                         
@@ -189,7 +155,6 @@
                         <label for="administration">Administration </label>
                       </div>
                       <div></div>
-                      <div></div>
                       <div class="grid-item">
                         <input class="radio-label" type="radio" id="finance-accounting" name="interests"
                           value="finance-accounting" onclick="toggleButton()">
@@ -200,7 +165,6 @@
                           value="computer-application" onclick="toggleButton()">
                         <label for="computer-application" >Computer Application</label>
                       </div>
-                      <div></div>
                       <div></div>
                       <div class="grid-item">
                         <input class="radio-label" type="radio" id="pharmacology" name="interests" 
@@ -232,7 +196,6 @@
                         <label for="administration">Pharmacy</label>
                       </div>
                       <div></div>
-                      <div></div>
                       <div class="grid-item">
                         <input class="radio-label" type="radio" id="finance-accounting" name="interests"
                           value="finance-accounting" onclick="toggleButton()">
@@ -243,7 +206,6 @@
                           value="computer-application" onclick="toggleButton()">
                         <label for="computer-application" >Computer Application</label>
                       </div>
-                      <div></div>
                       <div></div>
                       <div class="grid-item">
                         <input class="radio-label" type="radio" id="pharmacology" name="interests" value="pharmacology" onclick="toggleButton()">
@@ -308,10 +270,6 @@
                   </div>
                 </div>
 
-                <br>
-                <label class="label">Share your preferences to tailor recommendations, finding the best education fit
-                  aligned with your goals.</label>
-                <br>
                 <br>
                 <label class="label">Share your preferences to tailor recommendations, finding the best education fit
                   aligned with your goals.</label>
@@ -475,8 +433,7 @@ handleRadioVisibility();
 
   </script>
 
-
 </body>
 
 </html>
-{% endblock %} 
+{% endblock %}

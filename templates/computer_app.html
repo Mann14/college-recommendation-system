@@ -132,6 +132,30 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
           document.getElementById("error-message").style.display = "block";
           }
       });
+      document.addEventListener('DOMContentLoaded', function () {
+        var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        var minChecked = 3;
+        var maxChecked = 5;
+        var checkedCount = 0;
+
+        checkboxes.forEach(function (checkbox) {
+          checkbox.addEventListener('change', function () {
+            if (this.checked) {
+              checkedCount++;
+              if (checkedCount > maxChecked) {
+                this.checked = false;
+                checkedCount--;
+              }
+            } else {
+              checkedCount--;
+              if (checkedCount < minChecked) {
+                this.checked = true;
+                checkedCount++;
+              }
+            }
+          });
+        });
+      });
     </script>
 </body>
 </html>
