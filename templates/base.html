@@ -101,10 +101,7 @@
           padding: 5px; /* Add padding to the iframe content */
           box-sizing: border-box; /* Include padding and border in the total width and height */
         
-      }
-      
-
-  
+      }  
       .footer-sec {
           width: 100%;
           display: flex;
@@ -166,24 +163,53 @@
             font-size: 20px;
         }
       }
-      .disclaimer {
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            padding: 20px;
-            margin-bottom: 20px;
-        }
-        
-        .disclaimer p {
-            font-size: 18px;
-            line-height: 1.5;
-            color: #333;
-            margin: 0;
-        }
-        .disclaimer h2 {
-    font-size: 20px; /* Increase font size */
-    font-weight: bold; /* Bold text */
-    margin-bottom: 2px; /* Add some space below */
-}
+
+    .disclaimer {
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+
+    .disclaimer p {
+        font-size: 18px;
+        line-height: 1.5;
+        color: #333;
+        margin: 0;
+    }
+
+    .disclaimer h2 {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 2px;
+    }
+
+    .further-recommendations {
+        padding: 20px;
+    }
+
+    .further-recommendations h2 {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+    .further-recommendations p {
+        font-size: 18px;
+        line-height: 1.5;
+        color: #333;
+        margin-bottom: 10px;
+    }
+
+    .further-recommendations ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .further-recommendations li {
+        font-size: 18px;
+        margin-bottom: 5px;
+    }
       
   </style>
 </head>
@@ -214,7 +240,7 @@
       <iframe src="graph" height="500" width="1000" frameborder="0"></iframe>
     </div>
     -->
-    {% endblock %}
+    
     <p style="padding: 20px;">Click <a href="{{ url_for('roadmap', branch = b1) }}">here</a> to view the roadmap for this field. Else:</p> 
     <div class="further-recommendations" style="padding: 20px;">
         <h2>Further Recommendations</h2>
@@ -224,7 +250,7 @@
             <li>{{ b3 }}</li>
         </ul>
     </div>
-
+    {% endblock %}
 
     <footer class="footer">
         <div class="footer-sec">

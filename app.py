@@ -20,21 +20,21 @@ collection = db['registered_data']
 @app.route('/submit_form', methods=['POST'])
 def submit_form():
     # Process form data
-    rank = int(request.form.get('jee_rank'))
-    income = float(request.form.get('Family_income'))
-    interests = request.form.get('selected_interests')
-    #course = request.form.get('interest')
-    print(interests)
-    selected_interests = interests if interests else ""
+    rank = int(request.form.get('jee_rank')) # type: ignore
+    income = float(request.form.get('Family_income')) # type: ignore
+    binterests = request.form.get('selected_interests')
+    course = request.form.get('interests')
+    print(binterests)
+    selected_interests = binterests if binterests else ""
     print(selected_interests, rank, income)
-    b1, b2, b3 = get_recommendation(selected_interests, rank, income)
+    b1, b2, b3 = get_recommendation(selected_interests, rank, course)
     print(b1, b2, b3)
     b1 = b1.lower()
 
     template_path = f"recommends/{b1.lower()}.html"
 
     # Render HTML template based on branch recommendation
-    return render_template(template_path, b1=b1, b2=b2, b3=b3)
+    return render_template('main.html', b1 = b1.upper(), b2 = b2.upper(), b3 = b3.upper())
 
 # Call the function from model.py to predict top unique branches
 @app.route('/submit_form_alternate', methods=['POST'])
@@ -49,33 +49,9 @@ def submit_form_alternate():
 #    return render_template('graph.html') 
 
 @app.route('/')
-
 def index():
     return redirect(url_for('show_form'))
 
-@app.route('/technology')
-def tech():
-    return render_template('technology.html') 
-
-@app.route('/administration')
-def admin():
-    return render_template('administration.html') 
-
-@app.route('/finance')
-def finance():
-    return render_template('finance.html') 
-
-@app.route('/computer_app')
-def comp():
-    return render_template('computer_app.html') 
-
-@app.route('/pharmacology')
-def pharma():
-    return render_template('pharmacology.html') 
-
-@app.route('/agriculture')
-def agri():
-    return render_template('agriculture.html') 
 
 @app.route('/form', methods=['GET', 'POST'])
 def show_form():
@@ -96,6 +72,42 @@ def roadmap():
         'roadmap': 'Here is the roadmap for NLP...'  # Example roadmap content
     }
     return render_template(f'roadmaps/{branch}roadmap.html', roadmap_data=roadmap_data)
+
+
+@app.route('/display_content/<selected_branch>')
+def display_content(selected_branch):
+    return render_template('main.html', selected_branch=selected_branch)
+
+@app.route('/output')
+def output():
+    return render_template('recommends/cs.html')
+
+@app.route('/agriculture')
+def agriculture_page():
+    return render_template('course_interests/agriculture.html')
+
+@app.route('/administration')
+def administration_page():
+    return render_template('course_interests/administration.html')
+
+@app.route('/computer_app')
+def computer_app_page():
+    return render_template('course_interests/computer_app.html')
+
+@app.route('/finance')
+def finance_page():
+    return render_template('course_interests/finance.html')
+
+@app.route('/pharmacology')
+def pharmacology_page():
+    return render_template('course_interests/pharmacology.html')
+
+@app.route('/technology')
+def technology_page():
+    return render_template('course_interests/technology.html')
+
+if __name__ == '__main__':
+    app.run(debug=True)
 # def submit():
 #     if request.method == 'POST':
 #         # Extract form data
@@ -144,36 +156,3 @@ def roadmap():
 #         collection.insert_one(student_data)
 
 #         print('Form data submitted successfully!')
-
-
-
-@app.route('/output')
-def output():
-    return render_template('recommends/cs.html')
-
-@app.route('/agriculture')
-def agriculture_page():
-    return render_template('course_interests/agriculture.html')
-
-@app.route('/administration')
-def administration_page():
-    return render_template('course_interests/administration.html')
-
-@app.route('/computer_app')
-def computer_app_page():
-    return render_template('course_interests/computer_app.html')
-
-@app.route('/finance')
-def finance_page():
-    return render_template('course_interests/finance.html')
-
-@app.route('/pharmacology')
-def pharmacology_page():
-    return render_template('course_interests/pharmacology.html')
-
-@app.route('/technology')
-def technology_page():
-    return render_template('course_interests/technology.html')
-
-if __name__ == '__main__':
-    app.run(debug=True)

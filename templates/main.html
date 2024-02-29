@@ -1,0 +1,231 @@
+{% extends 'base.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Branch Content Recommendation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        #content-container {
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        h2 {
+            color: #4285f4;
+            border-bottom: 2px solid #4285f4;
+            padding-bottom: 5px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .subtitle {
+            margin-bottom: 20px;
+            color: #777;
+        }
+
+        .line {
+            border-top: 1px solid #ddd;
+            margin-bottom: 20px;
+        }
+        /* New styles for print icon */
+        .print-icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            cursor: pointer;
+            font-size: 24px; /* Adjust the size of the icon */
+        }
+
+        /* Tooltip styles */
+        .tooltip {
+            position: absolute;
+            top: 40px; /* Adjust the position of the tooltip */
+            right: 50px; /* Adjust the position of the tooltip */
+            background-color: #333;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .print-icon:hover + .tooltip {
+            visibility: visible;
+            opacity: 1;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+</head>
+<body>
+    <div id="content-container">
+        <h1>Branch Content Recommendation</h1>
+        <div class="line"></div>
+
+        <div class="subtitle">
+            <p><strong>Based on your interest preferences:</strong> '{{ selected_interests }}'</p>
+            <p><strong>Your eligible course:</strong> '{{ course }}'</p>
+            <p><strong>Our model recommends you this branch:</strong></p>
+        </div>
+
+        <div id="content">
+            <!-- Content for the top recommended branch will be dynamically loaded here -->
+        </div>
+    </div>
+    <!-- Print icon with print feature -->
+    <div class="print-icon" onclick="window.print()">
+        <i class="fas fa-print"></i> <!-- Font Awesome print icon -->
+    </div>
+    <div class="tooltip">Download</div>
+
+    <script>
+        // Define branch content data
+        var branchContent = {
+    "CSE": {
+        "content": "Computer Science and Engineering content",
+        "image": "/static/images/cse_image.jpg"
+    },
+    "AIML": {
+        "content": "Artificial Intelligence and Machine Learning content",
+        "image": "/static/images/aiml_image.jpg"
+    },
+    "IOT": {
+        "content": "Internet of Things content",
+        "image": "/static/images/iot_image.jpg"
+    },
+    "AIDS": {
+        "content": "AIDS content",
+        "image": "/static/images/aids_image.jpg"
+    },
+    "EC": {
+        "content": "Electronics and Communication content",
+        "image": "/static/images/ec_image.jpg"
+    },
+    "EEE": {
+        "content": "Electrical and Electronics Engineering content",
+        "image": "/static/images/eee_image.jpg"
+    },
+    "EE": {
+        "content": "Electrical Engineering content",
+        "image": "/static/images/ee_image.jpg"
+    },
+    "CE": {
+        "content": "Civil Engineering content",
+        "image": "/static/images/ce_image.jpg"
+    },
+    "ME": {
+        "content": "Mechanical Engineering content",
+        "image": "/static/images/me_image.jpg"
+    },
+    "Cyber Security": {
+        "content": "Cyber Security content",
+        "image": "/static/images/cyber_security_image.jpg"
+    },
+    "CSEDS": {
+        "content": "Computer Science and Engineering with Data Science content",
+        "image": "/static/images/cse_ds_image.jpg"
+    },
+    "B.Pharma": {
+        "content": "Bachelor of Pharmacy content",
+        "image": "/static/images/bpharma_image.jpg"
+    },
+    "BBA": {
+        "content": "Bachelor of Business Administration content",
+        "image": "/static/images/bba_image.jpg"
+    },
+    "Data Analytics": {
+        "content": "Data Analytics content",
+        "image": "/static/images/data_analytics_image.jpg"
+    },
+    "BCom": {
+        "content": "Bachelor of Commerce content",
+        "image": "/static/images/bcom_image.jpg"
+    },
+    "Hons(Retail Mgmt & E Comm.)": {
+        "content": "Honors in Retail Management and E-Commerce content",
+        "image": "/static/images/hons_image.jpg"
+    },
+    "BCA": {
+        "content": "Bachelor of Computer Applications content",
+        "image": "/static/images/bca_image.jpg"
+    },
+    "BSC(Agri)": {
+        "content": "Bachelor of Science in Agriculture content",
+        "image": "/static/images/bsc_agri_image.jpg"
+    },
+    "BCom(Hons)": {
+        "content": "Bachelor of Commerce Honors content",
+        "image": "/static/images/bcom_hons_image.jpg"
+    }
+    };
+
+        // Function to load content for the top recommended branch
+        function loadTopRecommendedBranchContent() {
+            var container = document.getElementById('content-container');
+            var topRecommendedBranch = "{{ b1 }}"; // Get the top recommended branch from Flask
+
+            // Check if the top recommended branch exists in branchContent
+            if (branchContent.hasOwnProperty(topRecommendedBranch)) {
+                var branchData = branchContent[topRecommendedBranch];
+
+                // Create a new div for the branch content
+                var branchContentDiv = document.createElement('div');
+                branchContentDiv.innerHTML = `
+                    <h2>${topRecommendedBranch}</h2>
+                    <p>${branchData.content}</p>
+                `;
+
+                // Append the branch image if available
+                if (branchData.image) {
+                    var branchImage = document.createElement('img');
+                    branchImage.src = branchData.image;
+                    branchImage.alt = topRecommendedBranch;
+                    branchContentDiv.appendChild(branchImage);
+                }
+
+                // Append the branch content div to the container
+                container.appendChild(branchContentDiv);
+            } else {
+                // Handle the case where content for the top recommended branch is not available
+                container.innerHTML = "<p>Content not available for the top recommended branch.</p>";
+            }
+        }
+
+        // Call the loadTopRecommendedBranchContent function when the page loads
+        window.onload = loadTopRecommendedBranchContent;
+    </script>
+</body>
+</html>
+{{ super() }}
+{% endblock %}
