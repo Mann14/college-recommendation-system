@@ -1,8 +1,9 @@
-from flask import Flask, render_template, request, redirect, url_for, jsonify
+from flask import Flask, render_template, request, redirect, url_for, session, jsonify
 from model import get_recommendation
 from pymongo import MongoClient
-
+from roadmaps import roadmaps
 app = Flask(__name__)
+app.secret_key = 'secret_key'  # Set a secret key for session management
 # mongo = PyMongo(app)
 client = MongoClient("mongodb://127.0.0.1:27017/")
 db = client['college_recommendation_system']
@@ -17,32 +18,38 @@ collection = db['registered_data']
       #  #family_income
        # data = ["NLP, Big Data, App Development", 6789 , 100000]
         #return data
+#@app.route('/roads')
+#def road():
+#    b1 = "AIML"
+#    roadmap_data = roadmaps.get(b1, {})  # Get the roadmap data for the branch
+#    return render_template('roadmap.html', b1 = b1, roadmapData=roadmap_data, roadmaps = roadmaps)
+
 @app.route('/submit_form', methods=['POST'])
 def submit_form():
     # Process form data
     rank = int(request.form.get('jee_rank')) # type: ignore
-    income = float(request.form.get('Family_income')) # type: ignore
+    income = int(request.form.get('Family_income')) # type: ignore
     binterests = request.form.get('selected_interests')
     course = request.form.get('interests')
     print(binterests)
     selected_interests = binterests if binterests else ""
-    print(selected_interests, rank, course)
-    b1, b2, b3 = get_recommendation(selected_interests, rank, course)
-    print(b1, b2, b3)
-    b1 = b1.lower()
+    print(selected_interests, rank, income, course)
+     # Call get_recommendation function
+    recommendations = get_recommendation(selected_interests, rank, course=course)
 
-    #template_path = f"recommends/{b1.lower()}.html"
-
-    # Render HTML template based on branch recommendation
-    return render_template('main.html', b1 = b1.upper(), b2 = b2.upper(), b3 = b3.upper(), interest =selected_interests, crs = course)
-
+    b1, b2, b3 = recommendations
+    session['b1'] = b1.upper()
+    return render_template('main.html', b1=b1.upper(), b2=b2.upper(), b3=b3.upper(), interest=selected_interests, crs=course)
+ 
+@app.route('/roadmap')
+def roadmap():
+    # Retrieve 'b1' from the session
+    b1 = session.get('b1', '')
+    roadmap_data = roadmaps.get(b1, {})  # Get the roadmap data for the branch
+    print("Roadmap Data:", roadmap_data) 
+    return render_template('roadmap.html', b1 = b1, roadmapData=roadmap_data, roadmaps = roadmaps)
 # Call the function from model.py to predict top unique branches
-@app.route('/submit_form_alternate', methods=['POST'])
-def submit_form_alternate():
-    selected_interests = request.form.getlist('interest')
-    # Print the selected interests
-    print("selected interests:", selected_interests)
-    return selected_interests
+
 
 #@app.route('/graph')
 #def graph():
@@ -62,16 +69,7 @@ def show_form():
         return redirect(url_for('index'))
     return render_template('index.html')
 
-@app.route('/roadmap')
-def roadmap():
-    # Logic to fetch and process roadmap data
-    # For example:
-    branch = request.args.get('branch')
-    roadmap_data = {
-        'field': 'NLP',  # Example field
-        'roadmap': 'Here is the roadmap for NLP...'  # Example roadmap content
-    }
-    return render_template(f'roadmaps/{branch}roadmap.html', roadmap_data=roadmap_data)
+
 
 
 @app.route('/display_content/<selected_branch>')
