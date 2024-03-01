@@ -59,24 +59,17 @@
             border-top: 1px solid #ddd;
             margin-bottom: 20px;
         }
-
-        /* New styles for print icon */
         .print-icon {
             position: absolute;
             top: 20px;
             right: 20px;
             cursor: pointer;
             font-size: 24px;
-            /* Adjust the size of the icon */
         }
-
-        /* Tooltip styles */
         .tooltip {
             position: absolute;
             top: 40px;
-            /* Adjust the position of the tooltip */
             right: 50px;
-            /* Adjust the position of the tooltip */
             background-color: #333;
             color: #fff;
             padding: 5px 10px;
@@ -118,12 +111,6 @@
             <p><strong>Our model recommends you this branch:</strong></p>
         </div>
 
-        <!-- <div id="content">
-            Content for the top recommended branch will be dynamically loaded here
-            <div>
-            </div>
-            <div></div>
-        </div> -->
         <div id="heading"></div>
         <div class="content">
             <div id="branch-content" class="content-item"></div>
@@ -131,14 +118,12 @@
         </div>
         {{ super() }}
     </div>
-    <!-- Print icon with print feature -->
     <div class="print-icon" onclick="window.print()">
-        <i class="fas fa-print"></i> <!-- Font Awesome print icon -->
+        <i class="fas fa-print"></i>
         <div class="tooltip">Download</div>
     </div>
 
     <script>
-        // Define branch content data
         var branchContent = {
             "CSE": {
                 "content": "BTech CSE is a four-year undergraduate program that focuses on practical and theoretical knowledge of computer hardware and advanced software. The program focuses on computer software and hardware process design and development. It emphasizes the principles of programming and networking while also covering a wide range of topics.CSE prepares students for a variety of roles in technology by combining theory and practical skills, with a focus on problem solving and innovation.",
@@ -186,83 +171,44 @@
             },
             "B.Pharma": {
                 "content": "Bachelor of Pharmacy content",
-                "image": "/static/images/bpharma_image.jpg"
+                "image": "/static/images/Bpharma.jpg"
             },
             "BBA": {
                 "content": "Bachelor of Business Administration content",
-                "image": "/static/images/bba_image.jpg"
+                "image": "/static/images/bba.jpg"
             },
             "Data Analytics": {
                 "content": "Data Analytics content",
-                "image": "/static/images/data_analytics_image.jpg"
+                "image": "/static/images/DataAnalytics.jpg"
             },
             "BCom": {
                 "content": "Bachelor of Commerce content",
-                "image": "/static/images/bcom_image.jpg"
+                "image": "/static/images/bcom.jpg"
             },
             "Hons(Retail Mgmt & E Comm.)": {
                 "content": "Honors in Retail Management and E-Commerce content",
-                "image": "/static/images/hons_image.jpg"
+                "image": "/static/images/HonsRetailManagement.jpg"
             },
             "BCA": {
                 "content": "Bachelor of Computer Applications content",
-                "image": "/static/images/bca_image.jpg"
+                "image": "/static/images/bca.jpg"
             },
             "BSC(Agri)": {
                 "content": "Bachelor of Science in Agriculture content",
-                "image": "/static/images/bsc_agri_image.jpg"
+                "image": "/static/images/bsc.jpg"
             },
             "BCom(Hons)": {
                 "content": "Bachelor of Commerce Honors content",
-                "image": "/static/images/bcom_hons_image.jpg"
+                "image": "/static/images/bcomHons.jpg"
             }
         };
 
-        // Function to load content for the top recommended branch
-        // function loadTopRecommendedBranchContent() {
-        //     var container = document.getElementById('content-container');
-        //     var topRecommendedBranch = "{{ b1 }}"; // Get the top recommended branch from Flask
-
-        //     // Check if the top recommended branch exists in branchContent
-        //     if (branchContent.hasOwnProperty(topRecommendedBranch)) {
-        //         var branchData = branchContent[topRecommendedBranch];
-
-        //         // Create a new div for the branch content
-        //         var branchContentDiv = document.createElement('div');
-        //         branchContentDiv.innerHTML = `
-        //         <div>
-        //             <h2>${topRecommendedBranch}</h2>
-        //         </div>
-        //         <div>
-        //             <p>${branchData.content}</p>
-        //         </div>
-        //         `;
-
-        //         // Append the branch image if available
-        //         if (branchData.image) {
-        //             var branchImage = document.createElement('img');
-        //             branchImage.src = branchData.image;
-        //             branchImage.alt = topRecommendedBranch;
-        //             branchContentDiv.appendChild(branchImage);
-        //         }
-
-        //         // Append the branch content div to the container
-        //         container.appendChild(branchContentDiv);
-        //     } else {
-        //         // Handle the case where content for the top recommended branch is not available
-        //         container.innerHTML = "<p>Content not available for the top recommended branch.</p>";
-        //     }
-        // }
-
-        // // Call the loadTopRecommendedBranchContent function when the page loads
-        // window.onload = loadTopRecommendedBranchContent;
         function loadTopRecommendedBranchContent() {
             var contentDiv = document.getElementById('branch-content');
             var imageDiv = document.getElementById('branch-image');
             var heading = document.getElementById('heading')
-            var topRecommendedBranch = "{{ b1 }}"; // Get the top recommended branch from Flask
+            var topRecommendedBranch = "{{ b1 }}"; 
 
-            // Check if the top recommended branch exists in branchContent
             if (branchContent.hasOwnProperty(topRecommendedBranch)) {
                 var branchData = branchContent[topRecommendedBranch];
 
@@ -275,20 +221,16 @@
                     var branchImage = document.createElement('img');
                     branchImage.src = branchData.image;
                     branchImage.alt = topRecommendedBranch;
-                    imageDiv.innerHTML = ''; // Clear previous image if any
+                    imageDiv.innerHTML = '';
                     imageDiv.appendChild(branchImage);
                 } else {
-                    // If image is not available, clear the image div
                     imageDiv.innerHTML = '';
                 }
             } else {
-                // Handle the case where content for the top recommended branch is not available
                 contentDiv.innerHTML = "<p>Content not available for the top recommended branch.</p>";
-                imageDiv.innerHTML = ''; // Clear the image div
+                imageDiv.innerHTML = '';
             }
         }
-
-        // Call the loadTopRecommendedBranchContent function when the page loads
         window.onload = loadTopRecommendedBranchContent;
     </script>
 </body>
