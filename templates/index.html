@@ -176,48 +176,9 @@
                         value="agriculture" onclick="toggleButton()">
                         <label for="agriculture" >Agriculture</label>
                       </div>
-                      
-                      <!-- <iframe id="myIframe" width="600" height="400" src=""></iframe> -->
                     </div>
                   </div>
-                </div>
-                <!-- <div class="row" id="interests1" style="display: none;">
-                  <div class="col-12">
-                    <label for="interests" class="interests font-weight-bold">interestss</label required><br>
-                    <div class="interests-container">
-                        
-                      <div class="grid-item">
-                        <input class="radio-label" type="radio" id="technology" name="interests" value="technology" onclick="toggleButton()">
-                        <label for="technology" >Medical</label>
-                      </div>
-                      <div class="grid-item">
-                        <input class="radio-label" type="radio" id="administration" name="interests"
-                          value="administration" onclick="toggleButton()">
-                        <label for="administration">Pharmacy</label>
-                      </div>
-                      <div></div>
-                      <div class="grid-item">
-                        <input class="radio-label" type="radio" id="finance-accounting" name="interests"
-                          value="finance-accounting" onclick="toggleButton()">
-                        <label for="finance-accounting" >Dental</label><br>
-                      </div>
-                      <div class="grid-item">
-                        <input class="radio-label" type="radio" id="computer-application" name="interests"
-                          value="computer-application" onclick="toggleButton()">
-                        <label for="computer-application" >Computer Application</label>
-                      </div>
-                      <div></div>
-                      <div class="grid-item">
-                        <input class="radio-label" type="radio" id="pharmacology" name="interests" value="pharmacology" onclick="toggleButton()">
-                        <label for="pharmacology" >Pharmacology</label>
-                      </div>
-                      <div class="grid-item">
-                        <input class="radio-label" type="radio" id="agriculture" name="interests" value="agriculture" onclick="toggleButton()">
-                        <label for="agriculture" >Agriculture</label>
-                      </div>
-                    </div>
-                  </div>
-                </div> -->
+                </div> 
                 <div class="row" style="display: none; margin:50px 0;" id="frame_tech">
                   <div class="col-12">
                     <div style="margin-bottom: 20px;">
@@ -278,7 +239,6 @@
                 <div class="mt-4-pt-2" style="text-align: center;">
                   <input class="btn btn-primary btn-lg"  type="submit" value="Submit" />
                 </div>
-                <!-- Add a hidden input field to store the selected checkboxes -->
             <input type="hidden" id="selected-interests" name="selected_interests" value="">
               </form>
             </div>
@@ -289,17 +249,11 @@
   </section>
   <script>
     document.getElementById("form").addEventListener("submit", function (event) {
-        event.preventDefault(); // Prevent default form submission
-
-        // Access the iframe element
+        event.preventDefault();
         var iframe = document.getElementById("frame");
-        // Access the document inside the iframe
         var iframeDocument = iframe.contentWindow.document;
-        // Access the selected checkboxes inside the iframe
         var selectedCheckboxes = iframeDocument.querySelectorAll('input[name="interest"]:checked');
         var selectedInterests = [];
-
-        // Extract values of selected checkboxes
         selectedCheckboxes.forEach(function (checkbox) {
             selectedInterests.push(checkbox.value);
         });
@@ -419,28 +373,6 @@ document.querySelectorAll('input[name="interest"]').forEach(function(radio) {
 
 // Initial visibility check
 handleRadioVisibility();
-    // function change()
-    // {
-    //   var stream = document.getElementById('12th_branch').value
-    //   var pcm = document.getElementById('interests')
-    //   var pcb = document.getElementById('interests1')
-    //   if(stream==='PCM')
-    //   {
-    //     pcm.style.display = 'grid';
-    //     pcb.style.display = 'none';
-    //   }
-    //   else if(stream ==='PCB'){
-    //     pcb.style.display = 'grid';
-    //     pcm.style.display ='none';
-    //   }
-    //   else
-    //   {
-    //     pcm.style.display = 'grid';
-    //     pcb.style.display = 'none';
-    //   }
-
-    // }
-
   </script>
 
 </body>
